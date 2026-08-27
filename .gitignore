@@ -35,5 +35,5 @@ tmp/
 memory/
 
 # Media assets - stored locally and uploaded to Cloudinary
-MEDIA/
+MEDIA/*
 !MEDIA/listing-proyectos.pdf
