@@ -1,0 +1,236 @@
+/* Editorial cinematic typography — Fontshare se carga de forma async en index.html */
+html,
+body,
+#root,
+.App {
+  background: #ffffff;
+  color: #0a0a0a;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+html.dark,
+html.dark body,
+html.dark #root,
+html.dark .App {
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+body {
+  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.005em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: "Cabinet Grotesk", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "ss01" 1;
+}
+
+/* Selection */
+::selection {
+  background: #0a0a0a;
+  color: #fdfdfd;
+}
+html.dark ::selection {
+  background: #f5f5f5;
+  color: #0a0a0a;
+}
+
+/* Custom thin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Image base */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Smoother focus */
+:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+}
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 4px;
+}
+
+/* Subtle entrance animation utility */
+@keyframes ddpFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: ddpFadeUp 700ms ease-out both;
+}
+
+/* Visor de imagen unificado (Apple TV–style) */
+.image-lightbox__thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Apple TV–style project tiles */
+.apple-tv-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.apple-tv-card iframe {
+  border-radius: inherit;
+}
+
+/* Tarjetas background: recortar chrome de YouTube (título, botones) */
+.video-bg-cover {
+  overflow: hidden !important;
+}
+
+.video-bg-cover iframe {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 320% !important;
+  height: 320% !important;
+  max-width: none !important;
+  transform-origin: var(--vf-x, 50%) var(--vf-y, 54%) !important;
+  transform: translate(-50%, -54%) scale(calc(3.2 * var(--vf-zoom, 1))) !important;
+  pointer-events: none !important;
+  border: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .apple-tv-card:active .aspect-video {
+    transform: scale(0.985);
+  }
+}
+
+/* Scroll-reveal: el elemento empieza invisible y sube al entrar en viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger para grids (se aplica con --delay inline) */
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal-stagger.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Franja horizontal de stills/BTS: cada item entra con fade+slide staggereado */
+.strip-item {
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    ring-color 0.3s ease;
+  transition-delay: var(--strip-delay, 0ms);
+}
+
+.strip-item.strip-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Ocultar scrollbar en los strips horizontales */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fullscreen hero: clip dentro del contenedor */
+.hero-fullscreen {
+  isolation: isolate;
+  contain: paint;
+}
+
+/* Home — reel en background: cubrir tarjeta (también en móvil vertical) */
+.hero-fullscreen--cover iframe {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 177.78vh !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 56.25vw !important;
+  max-width: none !important;
+  transform: translate(-50%, -50%) scale(1.04) !important;
+  transform-origin: center center !important;
+  pointer-events: none !important;
+  border: 0 !important;
+}
+
+/* /showreel — reproductor interactivo con controles Vimeo */
+.hero-player {
+  isolation: isolate;
+}
+
+.hero-player iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  border: 0 !important;
+}
+

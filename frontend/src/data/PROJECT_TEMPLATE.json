@@ -1,0 +1,65 @@
+{
+  "_INSTRUCCIONES": "Copia este bloque completo, pega dentro del array 'projects' de content.json en la posición donde quieras que aparezca el nuevo proyecto, y rellena los campos. Cambia siempre 'id' y 'slug' a valores únicos. Lee también CONTENT_GUIDE.md.",
+
+  "id": "p-CAMBIA-ESTO",
+  "slug": "titulo-del-proyecto-en-kebab-case",
+  "category": "fiction",
+  "_category_help": "fiction | documentary | commercial | music-video",
+
+  "title": "Título del Proyecto",
+  "year": 2025,
+  "_year_help": "Año de estreno o producción.",
+
+  "type": { "es": "Cortometraje", "en": "Short Film" },
+  "_type_help": "Tipo de proyecto. Ejemplos: Cortometraje / Short Film, Videoclip / Music Video, Publicidad / Commercial.",
+
+  "director": "Nombre del Director o Directores",
+  "_director_help": "Si hay varios directores, sepáralos con coma.",
+
+  "production_company": "Nombre de la Productora",
+  "_production_company_help": "Productora o compañía responsable de la producción. Deja '' si no aplica.",
+
+  "format": "ARRI Alexa Mini LF · Cooke S4",
+  "_format_help": "Detalles técnicos: cámara, lentes, formato fotoquímico/digital u observaciones relevantes.",
+
+  "synopsis": {
+    "es": "Sinopsis en español, 2-3 frases.",
+    "en": "Synopsis in English, 2-3 sentences."
+  },
+
+  "cover": "https://res.cloudinary.com/.../cover.jpg",
+  "_cover_help": "Imagen horizontal principal (miniatura en /work). En home se puede elegir otro still.",
+
+  "home_featured": true,
+  "home_order": 1,
+  "home_size": "medium",
+  "_home_size_help": "hero | large | wide | tall | medium | small — tamaño de la celda en la parrilla del home.",
+  "home_still": "",
+  "_home_still_help": "URL del fotograma para la portada. Vacío = cover.",
+  "preview_crop": { "x": 0, "y": 0, "w": 1, "h": 1 },
+  "_preview_crop_help": "Reencuadre 16:9 del vídeo Vimeo en miniaturas (Obra + hover en portada). Admin: junto a preview URL.",
+
+  "poster": "",
+  "_poster_help": "Poster image. Cartel oficial vertical opcional. Aparece en la página de proyecto. Deja '' si no hay.",
+
+  "preview_url": "https://vimeo.com/XXXXXXXXX",
+  "_preview_url_help": "Video embed. URL de Vimeo o YouTube. Se reproduce al pasar el ratón por la miniatura y como vídeo principal en la página de proyecto.",
+
+  "stills": [
+    "https://res.cloudinary.com/.../still1.jpg",
+    "https://res.cloudinary.com/.../still2.jpg"
+  ],
+
+  "recognitions": [
+    { "url": "https://res.cloudinary.com/.../premio-festival.png", "showOnHome": true, "showOnWork": true }
+  ],
+  "_recognitions_help": "showOnHome / showOnWork controlan tarjetas. Orden del array = visualización. Ficha del proyecto: todos. PNG blanco, fondo transparente.",
+
+  "bts": [
+    "https://res.cloudinary.com/.../bts1.jpg"
+  ],
+  "_bts_help": "Behind-the-scenes. Opcional. Si dejas [] vacío, no aparece la sección.",
+
+  "external_link": "",
+  "_external_link_help": "URL a IMDb, web del proyecto, etc. Si está vacío, no se muestra el botón."
+}

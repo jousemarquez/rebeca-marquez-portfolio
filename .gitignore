@@ -1,0 +1,35 @@
+# Node
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Environment
+.env.local
+.env.*.local
+.env
+
+# Build
+frontend/build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary
+temp/
+tmp/
+*.tmp
+
+# Private
+.claude/
+memory/

@@ -1,0 +1,54 @@
+{
+  "installCommand": "npm ci",
+  "buildCommand": "npm run predeploy",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "functions": {
+    "api/og.js": {
+      "includeFiles": "build/index.html"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.ddanidiaz.com" }],
+      "destination": "https://ddanidiaz.com/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/showreel", "destination": "/api/og" },
+    { "source": "/about", "destination": "/api/og" },
+    { "source": "/contact", "destination": "/api/og" },
+    { "source": "/work", "destination": "/api/og" },
+    { "source": "/work/(.*)", "destination": "/api/og" },
+    { "source": "/project/(.*)", "destination": "/api/og" },
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://fonts.fontshare.com https://cdn.fontshare.com data:; img-src 'self' https://res.cloudinary.com https://i.vimeocdn.com https://f.vimeocdn.com https://c.clarity.ms https://i.ytimg.com https://img.youtube.com https://vumbnail.com data: blob:; frame-src https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self' blob:; connect-src 'self' https://api.cloudinary.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://analytics.google.com https://region1.analytics.google.com https://www.clarity.ms https://c.bing.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
