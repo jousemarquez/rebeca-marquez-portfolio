@@ -33,7 +33,3 @@ tmp/
 # Private
 .claude/
 memory/
-
-# Media assets - stored locally and uploaded to Cloudinary
-MEDIA/*
-!MEDIA/listing-proyectos.pdf
