@@ -22,7 +22,7 @@ const {
   buildProjectVideoJsonLd,
 } = require('./_videoSeo');
 
-const BASE_URL = 'https://ddanidiaz.com';
+const BASE_URL = 'https://remarubi.com';
 const OG_LOGO   = 'https://res.cloudinary.com/dsphxo7mx/image/upload/c_scale,w_700/q_auto,f_jpg/e_negate/c_pad,b_rgb:000000,w_1200,h_630,g_center/v1777731841/DD_BLANCO_l8xqal.png';
 
 function buildOgLogoUrl(logoUrl) {
@@ -194,11 +194,11 @@ function buildProjectJsonLd(project, pageUrl) {
 
 function buildShowreelJsonLd(content, pageUrl) {
   const video = parseVideoUrl(content.site?.showreel_url);
-  const title = 'Showreel — Dani Díaz';
+  const title = 'Showreel — Rebeca Márquez Rubio';
   const description =
     content.site?.meta_description?.es
     || defaultContent.site?.meta_description?.es
-    || 'Showreel de Dani Díaz, Director de Fotografía.';
+    || 'Showreel de Rebeca Márquez Rubio, Director de Fotografía.';
   const thumb = video?.defaultThumbnail || buildOgLogoUrl(content.site?.logo_white);
   const videoNodeId = video ? `${pageUrl}#video` : undefined;
 
@@ -210,7 +210,7 @@ function buildShowreelJsonLd(content, pageUrl) {
       name: title,
       description,
       inLanguage: ['es', 'en'],
-      author: { '@id': 'https://ddanidiaz.com/#person' },
+      author: { '@id': 'https://remarubi.com/#person' },
       mainEntity: videoNodeId ? { '@id': videoNodeId } : undefined,
     },
   ];
@@ -234,11 +234,11 @@ function buildShowreelJsonLd(content, pageUrl) {
 
 function buildShowreelOG(content) {
   const video = parseVideoUrl(content.site?.showreel_url);
-  const title = esc('Showreel — Dani Díaz');
+  const title = esc('Showreel — Rebeca Márquez Rubio');
   const description = esc(
     content.site?.meta_description?.es
     || defaultContent.site?.meta_description?.es
-    || 'Showreel de Dani Díaz, Director de Fotografía.',
+    || 'Showreel de Rebeca Márquez Rubio, Director de Fotografía.',
   );
   const image = video?.defaultThumbnail || buildOgLogoUrl(content.site?.logo_white);
   const url = `${BASE_URL}/showreel`;
@@ -258,9 +258,9 @@ function buildShowreelOG(content) {
  * Prioridad de imagen: cover (si no es vídeo) → poster (cartel) → logo blanco.
  */
 function buildOGData(project) {
-  const title       = esc(`${project.title} — Dani Díaz`);
+  const title       = esc(`${project.title} — Rebeca Márquez Rubio`);
   const description = esc(
-    project.synopsis?.es || project.synopsis?.en || 'Proyecto cinematográfico de Dani Díaz, Director de Fotografía.'
+    project.synopsis?.es || project.synopsis?.en || 'Proyecto cinematográfico de Rebeca Márquez Rubio, Director de Fotografía.'
   );
 
   let image = OG_LOGO;
@@ -283,7 +283,7 @@ function buildOGData(project) {
     image,
     url,
     ogType: video ? 'video.other' : 'article',
-    imageAlt: esc(`${project.title} — Dani Díaz`),
+    imageAlt: esc(`${project.title} — Rebeca Márquez Rubio`),
     embedUrl: video?.embedUrl || null,
   };
 }
@@ -300,7 +300,7 @@ function buildBotHTML(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#f7f3e3" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -308,7 +308,7 @@ function buildBotHTML(
   <link rel="icon" type="image/png" sizes="32x32" href="${favicon}" />
   ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
   <meta property="og:type" content="${ogType}" />
-  <meta property="og:site_name" content="Dani Díaz — Director de Fotografía" />
+  <meta property="og:site_name" content="Rebeca Márquez Rubio — Director de Fotografía" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:image" content="${image}" />
@@ -324,7 +324,7 @@ function buildBotHTML(
   <meta name="twitter:image" content="${image}" />
   <meta name="twitter:image:alt" content="${imageAlt}" />${buildVideoMetaTags(embedUrl)}
 </head>
-<body style="background:#000000;">
+<body style="background:#f7f3e3;">
   ${mainContent}
   <noscript>Necesitas habilitar JavaScript para ver esta web.</noscript>
   <div id="root"></div>
@@ -355,7 +355,7 @@ function injectOGTags(html, { title, description, image, url, ogType = 'article'
   <link rel="canonical" href="${url}" />
   <meta name="description" content="${description}" />
   <meta property="og:type" content="${ogType}" />
-  <meta property="og:site_name" content="Dani Díaz — Director de Fotografía" />
+  <meta property="og:site_name" content="Rebeca Márquez Rubio — Director de Fotografía" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:image" content="${image}" />

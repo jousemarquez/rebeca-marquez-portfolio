@@ -25,4 +25,4 @@ User-agent: *
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://ddanidiaz.com/sitemap.xml
+Sitemap: https://remarubi.com/sitemap.xml

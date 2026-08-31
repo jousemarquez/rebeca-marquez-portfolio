@@ -7,19 +7,17 @@ const defaultContent = require('../src/data/content.json');
 const { getPublishedProjects } = require('./_content');
 const { resolveProjectVideo } = require('./_videoSeo');
 
-const BASE_URL = 'https://ddanidiaz.com';
+const BASE_URL = 'https://remarubi.com';
 const OG_LOGO =
   'https://res.cloudinary.com/dsphxo7mx/image/upload/c_scale,w_700/q_auto,f_jpg/e_negate/c_pad,b_rgb:000000,w_1200,h_630,g_center/v1777731841/DD_BLANCO_l8xqal.png';
 
 const CATEGORIES = [
-  { id: 'fiction', es: 'Ficción', en: 'Fiction' },
-  { id: 'documentary', es: 'Documental', en: 'Documentary' },
-  { id: 'commercial', es: 'Publicidad', en: 'Commercials' },
-  { id: 'music-video', es: 'Videoclips', en: 'Music Videos' },
+  { id: 'direccion', es: 'Dirección', en: 'Directing' },
+  { id: 'produccion', es: 'Producción', en: 'Production' },
 ];
 
 const T = {
-  work: { title: { es: 'Obra seleccionada', en: 'Selected work' } },
+  work: { title: { es: 'Portfolio', en: 'Selected work' } },
   about: { title: { es: 'Sobre mí', en: 'About' } },
   contact: {
     title: { es: 'Contacto', en: 'Contact' },
@@ -82,7 +80,7 @@ function getSiteDescription(content) {
 }
 
 function getSiteTitle(content) {
-  const name = content?.site?.name || 'Dani Díaz';
+  const name = content?.site?.name || 'Rebeca Márquez Rubio';
   const title = content?.site?.title?.es || defaultContent.site?.title?.es || 'Director de Fotografía';
   return `${name} — ${title}`;
 }
@@ -115,9 +113,9 @@ function buildStaticPageJsonLd(pathname, content) {
           url: meta.url,
           name: meta.title,
           description: meta.description,
-          inLanguage: ['es', 'en'],
-          author: { '@id': 'https://ddanidiaz.com/#person' },
-          isPartOf: { '@id': 'https://ddanidiaz.com/#website' },
+          inLanguage: ['es', 'en', 'ca'],
+          author: { '@id': 'https://remarubi.com/#person' },
+          isPartOf: { '@id': 'https://remarubi.com/#website' },
         },
       ],
     },
@@ -128,7 +126,7 @@ function buildStaticPageJsonLd(pathname, content) {
 
 /** Metadatos sin escapar (JSON-LD, etc.). */
 function getPageMeta(pathname, content) {
-  const name = content?.site?.name || 'Dani Díaz';
+  const name = content?.site?.name || 'Rebeca Márquez Rubio';
   const siteDesc = getSiteDescription(content);
 
   if (pathname === '/about') {
@@ -138,7 +136,7 @@ function getPageMeta(pathname, content) {
       url: `${BASE_URL}/about`,
       image: getHomeShareImage(content),
       ogType: 'website',
-      imageAlt: 'Logotipo DD de Dani Díaz, Director de Fotografía',
+      imageAlt: 'Logotipo DD de Rebeca Márquez Rubio, Director de Fotografía',
     };
   }
 
@@ -149,7 +147,7 @@ function getPageMeta(pathname, content) {
       url: `${BASE_URL}/contact`,
       image: getHomeShareImage(content),
       ogType: 'website',
-      imageAlt: 'Logotipo DD de Dani Díaz, Director de Fotografía',
+      imageAlt: 'Logotipo DD de Rebeca Márquez Rubio, Director de Fotografía',
     };
   }
 
@@ -162,11 +160,11 @@ function getPageMeta(pathname, content) {
     }
     return {
       title,
-      description: `Obra seleccionada de ${name}, Director de Fotografía. Ficción, documental, publicidad y videoclips.`,
+      description: `Portfolio de ${name}, Director de Fotografía. Ficción, documental, publicidad y videoclips.`,
       url: `${BASE_URL}${pathname}`,
       image: getHomeShareImage(content),
       ogType: 'website',
-      imageAlt: 'Logotipo DD de Dani Díaz, Director de Fotografía',
+      imageAlt: 'Logotipo DD de Rebeca Márquez Rubio, Director de Fotografía',
     };
   }
 
@@ -191,7 +189,7 @@ function getPageSeoData(pathname, content) {
 function buildSiteNavHtml() {
   return `<nav aria-label="Navegación principal" style="margin-top:2rem;font-size:14px;line-height:2">
   <a href="${BASE_URL}/">Inicio</a> ·
-  <a href="${BASE_URL}/work">Obra</a> ·
+  <a href="${BASE_URL}/work">Porfolio</a> ·
   <a href="${BASE_URL}/showreel">Showreel</a> ·
   <a href="${BASE_URL}/about">Sobre mí</a> ·
   <a href="${BASE_URL}/contact">Contacto</a>
@@ -199,7 +197,7 @@ function buildSiteNavHtml() {
 }
 
 function buildStaticBodyHtml(pathname, content, embedHtml = '') {
-  const name = content?.site?.name || 'Dani Díaz';
+  const name = content?.site?.name || 'Rebeca Márquez Rubio';
   const nav = buildSiteNavHtml();
 
   if (pathname === '/about') {
@@ -216,7 +214,7 @@ function buildStaticBodyHtml(pathname, content, embedHtml = '') {
   }
 
   if (pathname === '/contact') {
-    const email = content.site?.social?.email || 'ddfilming@gmail.com';
+    const email = content.site?.social?.email || 'remarubi.av@gmail.com';
     return `<main id="seo-static-content" style="max-width:720px;margin:2rem auto;padding:0 1.5rem;color:#fff;font-family:system-ui,sans-serif">
   <h1>${esc(tr(T.contact.title))} — ${esc(name)}</h1>
   <p>${esc(tr(T.contact.intro))}</p>

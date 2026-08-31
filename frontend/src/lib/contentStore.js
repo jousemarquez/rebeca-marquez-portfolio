@@ -125,18 +125,43 @@ export const setAdminAuthed = (val) => {
   else sessionStorage.removeItem(ADMIN_AUTH_KEY);
 };
 
+// "category" = departamento en el que participó Rebeca en el proyecto.
 export const CATEGORIES = [
-  { id: "fiction", es: "Ficción", en: "Fiction" },
-  { id: "documentary", es: "Documental", en: "Documentary" },
-  { id: "commercial", es: "Publicidad", en: "Commercials" },
-  { id: "music-video", es: "Videoclips", en: "Music Videos" },
+  { id: "direccion", es: "Dirección", en: "Directing", ca: "Direcció" },
+  { id: "produccion", es: "Producción", en: "Production", ca: "Producció" },
 ];
 
-// Returns only categories that have at least one published project
+// Returns only categories (departamentos) that have at least one published project
 export const getActiveCategories = (projects = []) =>
   CATEGORIES.filter((c) =>
     projects.some((p) => p.category === c.id && p.published !== false)
   );
+
+// Roles dentro de cada departamento — filtro fino en /work.
+export const ROLES = [
+  { id: "ayudante-direccion", department: "direccion", es: "Ayudante de Dirección", en: "Assistant Director", ca: "Ajudant/a de Direcció" },
+  { id: "segunda-ayudante-direccion", department: "direccion", es: "Segunda Ayudante de Dirección", en: "Second Assistant Director", ca: "Segona Ajudant de Direcció" },
+  { id: "auxiliar-direccion", department: "direccion", es: "Auxiliar de Dirección", en: "Directing Assistant", ca: "Auxiliar de Direcció" },
+  { id: "directora", department: "direccion", es: "Directora", en: "Director", ca: "Directora" },
+  { id: "directora-produccion", department: "produccion", es: "Directora de Producción", en: "Line Producer", ca: "Directora de Producció" },
+  { id: "jefa-produccion", department: "produccion", es: "Jefa de Producción", en: "Production Manager", ca: "Cap de Producció" },
+  { id: "auxiliar-produccion", department: "produccion", es: "Auxiliar de Producción", en: "Production Assistant", ca: "Auxiliar de Producció" },
+  { id: "coordinadora-transporte", department: "produccion", es: "Coordinadora de Transporte", en: "Transport Coordinator", ca: "Coordinadora de Transport" },
+];
+
+// Returns only roles that have at least one published project, optionally
+// scoped to a single department (id de CATEGORIES).
+export const getActiveRoles = (projects = [], departmentId = null) => {
+  const scoped = departmentId ? ROLES.filter((r) => r.department === departmentId) : ROLES;
+  return scoped.filter((r) =>
+    projects.some(
+      (p) =>
+        p.role === r.id &&
+        p.published !== false &&
+        (!departmentId || p.category === departmentId),
+    ),
+  );
+};
 
 export const slugify = (str) =>
   String(str || "")

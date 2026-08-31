@@ -64,8 +64,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App relative bg-white dark:bg-black text-black dark:text-white antialiased transition-colors duration-500">
-      <div className="film-grain-overlay pointer-events-none fixed inset-0 z-[100] mix-blend-overlay opacity-[0.035] dark:mix-blend-soft-light dark:opacity-[0.075]" aria-hidden />
+    <div className="App relative text-foreground antialiased transition-colors duration-500 bg-background">
+      <div className="film-grain-overlay pointer-events-none fixed inset-0 z-[100] mix-blend-overlay opacity-[0.035]" aria-hidden />
       <BrowserRouter>
         <SpeedInsightsBridge />
         <GA4Tracker />

@@ -73,12 +73,12 @@ function getProjectVideoThumbnail(project, video) {
   return video?.defaultThumbnail || '';
 }
 
-function projectDescription(project, fallback = 'Proyecto cinematográfico de Dani Díaz.') {
+function projectDescription(project, fallback = 'Proyecto cinematográfico de Rebeca Márquez Rubio.') {
   return (project?.synopsis?.es || project?.synopsis?.en || fallback).slice(0, 500);
 }
 
 /** Nodos WebPage + VideoObject para JSON-LD de un proyecto. */
-function buildProjectVideoGraph(project, pageUrl, siteName = 'Dani Díaz') {
+function buildProjectVideoGraph(project, pageUrl, siteName = 'Rebeca Márquez Rubio') {
   const video = resolveProjectVideo(project);
   const description = projectDescription(project);
   const videoNodeId = video ? `${pageUrl}#video` : undefined;
@@ -91,7 +91,7 @@ function buildProjectVideoGraph(project, pageUrl, siteName = 'Dani Díaz') {
       name: `${project.title} — ${siteName}`,
       description,
       inLanguage: ['es', 'en'],
-      author: { '@id': 'https://ddanidiaz.com/#person' },
+      author: { '@id': 'https://remarubi.com/#person' },
       mainEntity: videoNodeId ? { '@id': videoNodeId } : undefined,
     },
   ];

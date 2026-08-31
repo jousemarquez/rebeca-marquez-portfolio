@@ -12,7 +12,7 @@
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.ddanidiaz.com" }],
-      "destination": "https://ddanidiaz.com/:path*",
+      "destination": "https://remarubi.com/:path*",
       "permanent": true
     }
   ],

@@ -32,9 +32,6 @@ export function packJustified(items, containerWidth, opts = {}) {
     return [];
   }
 
-  const rows = [];
-  let current = [];
-
   const fillH = (list) => {
     const n = list.length;
     const gaps = gap * Math.max(0, n - 1);
@@ -42,55 +39,85 @@ export function packJustified(items, containerWidth, opts = {}) {
     return (containerWidth - gaps) / sumR;
   };
 
-  const fits = (item) => fillH([...current, item]) >= minH;
-
-  const flush = () => {
-    if (!current.length) return;
-    let height = fillH(current);
+  const sizeRow = (list) => {
+    let height = fillH(list);
     const cap =
-      current.length === 1
-        ? Math.min(maxH, soloMaxHForSize(current[0].size, windowH))
+      list.length === 1
+        ? Math.min(maxH, soloMaxHForSize(list[0].size, windowH))
         : maxH;
     height = Math.min(height, cap);
-    if (current.length > 1) height = Math.max(minH, Math.min(height, maxH));
-    height = Math.min(height, fillH(current));
-    rows.push(
-      current.map((item) => ({
-        ...item,
-        height,
-        width: height * item.ratio,
-      })),
-    );
-    current = [];
+    if (list.length > 1) height = Math.max(minH, Math.min(height, maxH));
+    height = Math.min(height, fillH(list));
+    return list.map((item) => ({
+      ...item,
+      height,
+      width: height * item.ratio,
+    }));
   };
 
-  for (const item of items) {
-    if (soloAll) {
-      current = [item];
-      flush();
-      continue;
-    }
-
-    const itemSolo = SOLO_SIZES.has(item.size);
-    if (itemSolo && current.length) flush();
-    if (current.length && SOLO_SIZES.has(current[0].size)) flush();
-
-    const rowMax = itemSolo
-      ? 1
-      : Math.min(
-          globalMaxPerRow,
-          maxPerRowForSize(item.size, globalMaxPerRow),
-          current.length
-            ? maxPerRowForSize(current[0].size, globalMaxPerRow)
-            : globalMaxPerRow,
-        );
-
-    if (current.length >= rowMax) flush();
-    if (current.length && !fits(item)) flush();
-    current.push(item);
-    if (itemSolo) flush();
+  if (soloAll) {
+    return items.map((item) => sizeRow([item]));
   }
-  flush();
+
+  // Los "wide" siempre van solos en su fila; el resto se empareja entre sí
+  // ignorando dónde caigan los "wide" en medio, para que nunca quede un
+  // proyecto normal huérfano en una fila de 1 solo porque un "wide" lo
+  // interrumpió (ver home_size en el CMS). Las filas "wide" se reinsertan
+  // después en la posición que les corresponda según su orden original.
+  const solo = [];
+  const normal = [];
+  items.forEach((item, index) => {
+    if (SOLO_SIZES.has(item.size)) solo.push({ item, index });
+    else normal.push({ item, index });
+  });
+
+  const normalRows = [];
+  let current = [];
+  for (const { item } of normal) {
+    const rowMax = Math.min(
+      globalMaxPerRow,
+      maxPerRowForSize(item.size, globalMaxPerRow),
+      current.length
+        ? maxPerRowForSize(current[0].size, globalMaxPerRow)
+        : globalMaxPerRow,
+    );
+    if (current.length >= rowMax) {
+      normalRows.push(current);
+      current = [];
+    }
+    if (current.length && fillH([...current, item]) < minH) {
+      normalRows.push(current);
+      current = [];
+    }
+    current.push(item);
+  }
+  if (current.length) normalRows.push(current);
+
+  if (!solo.length) {
+    return normalRows.map((row) => sizeRow(row));
+  }
+
+  let consumed = 0;
+  const rowBoundaries = normalRows.map((row) => (consumed += row.length));
+
+  const afterRowIdxOf = (index) => {
+    const normalsBefore = normal.filter((n) => n.index < index).length;
+    if (normalsBefore === 0) return -1;
+    const idx = rowBoundaries.findIndex((b) => b >= normalsBefore);
+    return idx === -1 ? normalRows.length - 1 : idx;
+  };
+
+  const rows = [];
+  solo
+    .filter(({ index }) => afterRowIdxOf(index) === -1)
+    .forEach(({ item }) => rows.push(sizeRow([item])));
+
+  for (let r = 0; r < normalRows.length; r++) {
+    rows.push(sizeRow(normalRows[r]));
+    solo
+      .filter(({ index }) => afterRowIdxOf(index) === r)
+      .forEach(({ item }) => rows.push(sizeRow([item])));
+  }
 
   return rows;
 }

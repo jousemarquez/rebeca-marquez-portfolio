@@ -11,7 +11,7 @@ const {
 } = require('./_videoSeo');
 const defaultContent = require('../src/data/content.json');
 
-const BASE_URL = 'https://ddanidiaz.com';
+const BASE_URL = 'https://remarubi.com';
 
 function escXml(str) {
   return String(str || '')
@@ -35,13 +35,13 @@ module.exports = async (req, res) => {
   const today     = new Date().toISOString().split('T')[0];
   const siteDesc  = content.site?.meta_description?.es
     || defaultContent.site?.meta_description?.es
-    || 'Showreel de Dani Díaz, Director de Fotografía.';
+    || 'Showreel de Rebeca Márquez Rubio, Director de Fotografía.';
 
   const categories = [...new Set(published.map((p) => p.category).filter(Boolean))];
 
   const showreelVideo = buildVideoSitemapBlock({
     videoUrl: content.site?.showreel_url,
-    title: 'Showreel — Dani Díaz',
+    title: 'Showreel — Rebeca Márquez Rubio',
     description: siteDesc,
     thumb: parseVideoUrl(content.site?.showreel_url)?.defaultThumbnail || '',
   });

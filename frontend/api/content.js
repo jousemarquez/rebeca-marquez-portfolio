@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
       const db = await getDb();
       await db.collection(COLLECTION).replaceOne({}, body, { upsert: true });
 
-      const sitemapUrl = encodeURIComponent('https://ddanidiaz.com/sitemap.xml');
+      const sitemapUrl = encodeURIComponent('https://remarubi.com/sitemap.xml');
       fetch(`https://www.google.com/ping?sitemap=${sitemapUrl}`).catch(() => {});
       fetch(`https://www.bing.com/ping?sitemap=${sitemapUrl}`).catch(() => {});
 

@@ -68,12 +68,12 @@ export function getProjectVideoThumbnail(project, video) {
   return video?.defaultThumbnail || "";
 }
 
-export function buildProjectVideoGraph(project, pageUrl, siteName = "Dani Díaz") {
+export function buildProjectVideoGraph(project, pageUrl, siteName = "Rebeca Márquez Rubio") {
   const video = resolveProjectVideo(project);
   const description = (
     project?.synopsis?.es ||
     project?.synopsis?.en ||
-    "Proyecto cinematográfico de Dani Díaz."
+    "Proyecto cinematográfico de Rebeca Márquez Rubio."
   ).slice(0, 500);
   const videoNodeId = video ? `${pageUrl}#video` : undefined;
 
@@ -85,7 +85,7 @@ export function buildProjectVideoGraph(project, pageUrl, siteName = "Dani Díaz"
       name: `${project.title} — ${siteName}`,
       description,
       inLanguage: ["es", "en"],
-      author: { "@id": "https://ddanidiaz.com/#person" },
+      author: { "@id": "https://remarubi.com/#person" },
       ...(videoNodeId ? { mainEntity: { "@id": videoNodeId } } : {}),
     },
   ];
