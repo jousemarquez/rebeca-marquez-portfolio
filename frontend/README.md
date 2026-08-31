@@ -1,4 +1,4 @@
-# Dani Díaz — Director of Photography Portfolio
+# Rebeca Márquez Rubio — Director of Photography Portfolio
 
 A high-end, minimalist cinematic portfolio website built with React. Static
 JSON-driven, bilingual (ES / EN), with a hidden admin panel for editing the
@@ -103,7 +103,7 @@ Edit `src/data/content.json` in any editor. Schema:
 ```json
 {
   "site": {
-    "name": "Dani Díaz",
+    "name": "Rebeca Márquez Rubio",
     "title": { "es": "...", "en": "..." },
     "tagline": { "es": "...", "en": "..." },
     "showreel_url": "https://vimeo.com/<id>",
@@ -210,5 +210,5 @@ yarn predeploy
 
 ## License
 
-All visual content (images, videos, posters) © Dani Díaz / respective rights
+All visual content (images, videos, posters) © Rebeca Márquez Rubio / respective rights
 holders. Code released under MIT.

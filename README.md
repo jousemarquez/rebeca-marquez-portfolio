@@ -1,8 +1,8 @@
 # Remarubi — Portfolio Audiovisual
 
-> Productora Audiovisual | Producción Integral de Contenidos
+> Dirección y Producción | Producción Integral de Contenidos
 
-Remarubi es un portfolio profesional para **Rebeca Márquez Rubio**, Productora Audiovisual especializada en ficción, documental, publicidad y videoclips.
+Remarubi es un portfolio profesional para **Rebeca Márquez Rubio**, Dirección y Producción especializada en ficción, documental, publicidad y videoclips.
 
 **Website**: [remarubi.com](https://remarubi.com)  
 **Vimeo**: [vimeo.com/user210469437](https://vimeo.com/user210469437)  
@@ -176,7 +176,7 @@ npm run check:videos        # Validar URLs Vimeo
 2. Conectar repo en Vercel
 3. Configurar 8 variables de entorno (ver `.env.example`)
 4. Deploy automático
-5. Verificar en `https://ddanidiaz.com`
+5. Verificar en `https://remarubi.com`
 
 ---
 
@@ -222,7 +222,7 @@ MEDIA/
 ## 🔐 Admin Panel
 
 Accede en `/admin` (una vez deployado):
-- **URL**: `https://ddanidiaz.com/admin`
+- **URL**: `https://remarubi.com/admin`
 - **Contraseña**: Definida en `.env` (`ADMIN_PASSWORD`)
 
 **Funciones**:
@@ -241,9 +241,8 @@ Accede en `/admin` (una vez deployado):
 **Teléfono**: +34 647 005 955  
 
 **Redes Sociales**:
-- Instagram: [@rebecamarquezrubio](https://instagram.com/rebecamarquezrubio)
-- Vimeo: [vimeo.com/user210469437](https://vimeo.com/user210469437)
-- LinkedIn: [linkedin.com/in/rebeca-marquez-rubio](https://linkedin.com/in/rebeca-marquez-rubio)
+- Instagram: [@remarubi](https://instagram.com/remarubi)
+- LinkedIn: [linkedin.com/in/remarubi](http://www.linkedin.com/in/remarubi)
 
 ---
 

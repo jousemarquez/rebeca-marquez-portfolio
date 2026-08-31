@@ -103,7 +103,7 @@
     "Include a hidden `/admin` route for editing the JSON content (Projects, About text).",
     "Implement the 4 categories (Fiction, Documentaries, Commercials, Music Videos) as filterable or separate sections on the Selected Works page.",
     "Project Detail Page: Massive hero image/video, minimal text, a clean grid for stills, optional BTS section, and an external link button.",
-    "Footer/Contact: ddfilming@gmail.com, Instagram, Vimeo, LinkedIn, IMDb.",
+    "Footer/Contact: remarubi@gmail.com, Instagram, Vimeo, LinkedIn, IMDb.",
     "All interactive elements MUST have `data-testid` attributes (kebab-case, role-based)."
   ]
 }
