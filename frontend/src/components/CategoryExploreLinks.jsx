@@ -39,7 +39,7 @@ export function CategoryExploreLinks({
             key={c.id}
             to={`/work/${c.id}`}
             data-testid={`category-explore-${c.id}`}
-            className="group relative overflow-hidden rounded-2xl bg-neutral-950 ring-1 ring-white/10 hover:ring-white/25 transition-all duration-500 p-5 flex flex-col justify-end min-h-[100px] sm:min-h-[120px]"
+            className="group relative overflow-hidden bg-olive ring-1 ring-olive/10 hover:ring-carrot-orange/25 transition-all duration-500 p-5 flex flex-col justify-end min-h-[100px] sm:min-h-[120px]"
           >
             {thumb && (
               <img
@@ -49,12 +49,12 @@ export function CategoryExploreLinks({
               />
             )}
             <div className="relative z-10">
-              <span className="text-lg sm:text-xl font-light tracking-tight text-white">
+              <span className="text-lg sm:text-xl font-light tracking-tight text-ivory-mist">
                 {c[lang]}
               </span>
             </div>
             <ArrowRight
-              className="absolute right-4 bottom-4 h-4 w-4 text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all"
+              className="absolute right-4 bottom-4 h-4 w-4 text-ivory-mist/30 group-hover:text-carrot-orange/80 group-hover:translate-x-1 transition-all"
               strokeWidth={1.5}
             />
           </Link>

@@ -28,7 +28,7 @@ export const VimeoEmbed = ({
     return (
       <div
         data-testid={testId}
-        className={`flex items-center justify-center bg-neutral-100 dark:bg-neutral-900 text-neutral-500 text-sm ${className}`}
+        className={`flex items-center justify-center bg-ivory-mist border border-olive/15 text-taupe text-sm ${className}`}
       >
         Video URL invalid
       </div>
@@ -70,7 +70,7 @@ export const VimeoEmbed = ({
 
   return (
     <div
-      className={`relative w-full bg-black ${className} ${interactive ? "" : "pointer-events-none"}`}
+      className={`relative w-full bg-shadow-grey ${className} ${interactive ? "" : "pointer-events-none"}`}
       data-testid={testId}
     >
       <iframe
@@ -80,7 +80,7 @@ export const VimeoEmbed = ({
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
         onLoad={onIframeLoad}
-        className={`absolute inset-0 h-full w-full border-0 bg-black [color-scheme:dark] ${interactive ? "" : "pointer-events-none"}`}
+        className={`absolute inset-0 h-full w-full border-0 bg-shadow-grey [color-scheme:dark] ${interactive ? "" : "pointer-events-none"}`}
       />
     </div>
   );

@@ -33,6 +33,10 @@ export function SeoHead() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  useEffect(() => {
     if (pathname.startsWith("/admin")) return;
 
     const { title, description, canonical, image, imageAlt, ogType } = getPageSeo(

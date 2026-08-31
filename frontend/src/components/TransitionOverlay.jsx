@@ -65,7 +65,7 @@ export const TransitionOverlay = ({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-${pointerEvents} fixed inset-0 z-[9998] bg-black transition-opacity ease-out ${className}`}
+      className={`pointer-events-${pointerEvents} fixed inset-0 z-[9998] bg-shadow-grey transition-opacity ease-out ${className}`}
       style={{
         opacity,
         transitionDuration: `${duration}ms`,

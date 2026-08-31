@@ -16,11 +16,10 @@ function ControlButton({ onClick, label, ariaLabel, active = false, children }) 
       onClick={onClick}
       aria-label={ariaLabel}
       aria-pressed={active}
-      className={`flex min-h-12 min-w-[7.5rem] items-center justify-center gap-2 rounded-full border px-4 text-[11px] font-medium tracking-[0.12em] uppercase backdrop-blur-md transition active:scale-95 ${
-        active
-          ? "border-white/40 bg-white/15 text-white"
-          : "border-white/20 bg-black/50 text-white/90 hover:border-white/35 hover:bg-black/70"
-      }`}
+      className={`flex min-h-12 min-w-[7.5rem] items-center justify-center gap-2 rounded-full border px-4 text-[11px] font-medium tracking-[0.12em] uppercase backdrop-blur-md transition active:scale-95 ${active
+        ? "border-carrot-orange/40 bg-carrot-orange/15 text-shadow-grey"
+        : "border-olive/20 bg-ivory-mist/70 text-shadow-grey/90 hover:border-olive/35 hover:bg-ivory-mist/90"
+        }`}
     >
       {children}
       <span>{label}</span>
@@ -38,7 +37,7 @@ export default function Showreel() {
   const url = content.site?.showreel_url;
   const watchVideo = parseVideoUrl(url);
   const poster = getVimeoPosterUrl(url) || watchVideo?.defaultThumbnail;
-  const name = content.site?.name || "Dani Díaz";
+  const name = content.site?.name || "Rebeca Márquez Rubio";
   const title = `${tr(T.hero.showreel, lang)} — ${name}`;
   const description =
     lang === "es"
@@ -85,23 +84,23 @@ export default function Showreel() {
       "@graph": [
         {
           "@type": "WebPage",
-          "@id": "https://ddanidiaz.com/showreel#webpage",
-          url: "https://ddanidiaz.com/showreel",
+          "@id": "https://remarubi.com/showreel#webpage",
+          url: "https://remarubi.com/showreel",
           name: title,
           description: getSiteDescription(content, lang) || description,
           inLanguage: lang,
-          mainEntity: { "@id": "https://ddanidiaz.com/showreel#video" },
+          mainEntity: { "@id": "https://remarubi.com/showreel#video" },
         },
         {
           "@type": "VideoObject",
-          "@id": "https://ddanidiaz.com/showreel#video",
+          "@id": "https://remarubi.com/showreel#video",
           name: title,
           description,
           thumbnailUrl: thumb,
           contentUrl: watchVideo.contentUrl,
           embedUrl: watchVideo.embedUrl,
-          url: "https://ddanidiaz.com/showreel",
-          isPartOf: { "@id": "https://ddanidiaz.com/showreel#webpage" },
+          url: "https://remarubi.com/showreel",
+          isPartOf: { "@id": "https://remarubi.com/showreel#webpage" },
           uploadDate: "2024-01-01T00:00:00+00:00",
         },
       ],
@@ -153,7 +152,7 @@ export default function Showreel() {
       await player.setMuted(next);
       if (!next) await player.setVolume(0.85);
       setMuted(next);
-    } catch {}
+    } catch { }
   }, [muted]);
 
   const toggleExpand = useCallback(async () => {
@@ -163,7 +162,7 @@ export default function Showreel() {
     if (expanded) {
       try {
         if (player?.exitFullscreen) await player.exitFullscreen();
-      } catch {}
+      } catch { }
       await exitNativeFullscreen();
       setExpanded(false);
       return;
@@ -175,7 +174,7 @@ export default function Showreel() {
         setExpanded(true);
         return;
       }
-    } catch {}
+    } catch { }
 
     if (await requestNativeFullscreen(el)) {
       setExpanded(true);
@@ -189,19 +188,19 @@ export default function Showreel() {
     const player = getPlayer("showreel-page");
     if (!player) return;
     try {
-      player.setMuted(false).catch(() => {});
-      player.setVolume(0.85).catch(() => {});
-      player.play().catch(() => {});
+      player.setMuted(false).catch(() => { });
+      player.setVolume(0.85).catch(() => { });
+      player.play().catch(() => { });
       setMuted(false);
-    } catch {}
+    } catch { }
   }, []);
 
   if (!url) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+      <div className="min-h-screen bg-ivory-mist text-shadow-grey flex items-center justify-center px-6">
         <Link
           to="/"
-          className="text-sm text-white/50 hover:text-white border-b border-white/30 pb-1"
+          className="text-sm text-taupe hover:text-shadow-grey border-b border-olive/30 pb-1"
           aria-label={lang === "es" ? "Volver al inicio" : "Back to home"}
         >
           ←
@@ -229,14 +228,14 @@ export default function Showreel() {
   return (
     <div
       data-testid="showreel-page"
-      className="fixed inset-0 z-40 flex flex-col bg-black"
+      className="fixed inset-0 z-40 flex flex-col bg-ivory-mist"
       style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
       <h1 className="sr-only">{title}</h1>
 
       <Link
         to="/"
-        className="absolute right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white/80 backdrop-blur-md transition hover:border-white/40 hover:text-white sm:right-6"
+        className="absolute right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-olive/20 bg-ivory-mist/70 text-shadow-grey/80 backdrop-blur-md transition hover:border-olive/40 hover:text-shadow-grey sm:right-6"
         aria-label={lang === "es" ? "Cerrar showreel" : "Close showreel"}
       >
         <X className="h-4 w-4" strokeWidth={1.5} />
@@ -245,11 +244,10 @@ export default function Showreel() {
       <div className="flex flex-1 min-h-0 items-stretch justify-center sm:items-center sm:px-6 sm:py-16">
         <div
           ref={playerWrapRef}
-          className={`hero-player showreel-player relative flex min-h-0 w-full flex-col bg-black overflow-hidden ${
-            expanded
-              ? "fixed inset-0 z-[55] max-h-none rounded-none"
-              : "h-full max-h-none flex-1 sm:h-auto sm:max-h-[calc(100svh-8rem)] sm:flex-none sm:aspect-video sm:max-w-5xl sm:rounded-2xl sm:shadow-[0_32px_100px_-24px_rgba(0,0,0,0.95)] sm:ring-1 sm:ring-white/10"
-          }`}
+          className={`hero-player showreel-player relative flex min-h-0 w-full flex-col bg-shadow-grey overflow-hidden ${expanded
+            ? "fixed inset-0 z-[55] max-h-none rounded-none"
+            : "h-full max-h-none flex-1 sm:h-auto sm:max-h-[calc(100svh-8rem)] sm:flex-none sm:aspect-video sm:max-w-5xl sm:rounded-2xl sm:shadow-[0_32px_100px_-24px_rgba(0,0,0,0.95)] sm:ring-1 sm:ring-olive/10"
+            }`}
         >
           {poster && !playing && (
             <img
@@ -275,7 +273,7 @@ export default function Showreel() {
 
           {/* Barra táctil — siempre visible encima del vídeo (móvil + desktop) */}
           <div
-            className="relative z-30 flex shrink-0 items-center justify-center gap-3 border-t border-white/10 bg-black/85 px-4 py-3 backdrop-blur-md sm:gap-4 sm:py-4"
+            className="relative z-30 flex shrink-0 items-center justify-center gap-3 border-t border-olive/10 bg-ivory-mist/90 px-4 py-3 backdrop-blur-md sm:gap-4 sm:py-4"
             style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom, 0px))" }}
           >
             <ControlButton

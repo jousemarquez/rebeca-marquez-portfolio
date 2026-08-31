@@ -88,7 +88,7 @@ export function CropEditor({
 
   if (!imageUrl) {
     return (
-      <p className="text-xs text-neutral-500">Elige un still para ajustar el recorte.</p>
+      <p className="text-xs text-ivory-mist/50">Elige un still para ajustar el recorte.</p>
     );
   }
 
@@ -99,24 +99,24 @@ export function CropEditor({
   return (
     <div className="space-y-3" data-testid={`crop-editor-${mode}`}>
       <div className="flex items-center justify-between gap-2">
-        <p className="text-[10px] tracking-[0.22em] uppercase text-neutral-500">{label}</p>
+        <p className="text-[10px] tracking-[0.22em] uppercase text-ivory-mist/50">{label}</p>
         <button
           type="button"
           onClick={reset}
-          className="text-[10px] tracking-[0.18em] uppercase text-neutral-400 hover:text-white transition"
+          className="text-[10px] tracking-[0.18em] uppercase text-ivory-mist/60 hover:text-carrot-orange transition"
         >
           Reset
         </button>
       </div>
-      <div className="relative aspect-video max-w-md rounded-lg overflow-hidden bg-black border border-white/10">
+      <div className="relative aspect-video max-w-md rounded-lg overflow-hidden bg-shadow-grey border border-olive/10">
         <CropPreview imageUrl={imageUrl} crop={previewCrop} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md">
         {mode === "free" && (
-          <label className="block text-[10px] text-neutral-500 uppercase tracking-wider">
+          <label className="block text-[10px] text-ivory-mist/50 uppercase tracking-wider">
             Proporción
             <select
-              className="mt-1 w-full bg-black border border-white/15 rounded px-2 py-1.5 text-sm text-white"
+              className="mt-1 w-full bg-shadow-grey border border-olive/15 rounded px-2 py-1.5 text-sm text-ivory-mist"
               value={aspectId}
               onChange={(e) => {
                 setAspectId(e.target.value);
@@ -129,7 +129,7 @@ export function CropEditor({
             </select>
           </label>
         )}
-        <label className="block text-[10px] text-neutral-500 uppercase tracking-wider">
+        <label className="block text-[10px] text-ivory-mist/50 uppercase tracking-wider">
           Zoom
           <input
             type="range"
@@ -142,10 +142,10 @@ export function CropEditor({
               setZoom(z);
               apply(panX, panY, z);
             }}
-            className="mt-1 w-full accent-white"
+            className="mt-1 w-full accent-carrot-orange"
           />
         </label>
-        <label className="block text-[10px] text-neutral-500 uppercase tracking-wider">
+        <label className="block text-[10px] text-ivory-mist/50 uppercase tracking-wider">
           Horizontal
           <input
             type="range"
@@ -158,10 +158,10 @@ export function CropEditor({
               setPanX(v);
               apply(v, panY, zoom);
             }}
-            className="mt-1 w-full accent-white"
+            className="mt-1 w-full accent-carrot-orange"
           />
         </label>
-        <label className="block text-[10px] text-neutral-500 uppercase tracking-wider">
+        <label className="block text-[10px] text-ivory-mist/50 uppercase tracking-wider">
           Vertical
           <input
             type="range"
@@ -174,7 +174,7 @@ export function CropEditor({
               setPanY(v);
               apply(panX, v, zoom);
             }}
-            className="mt-1 w-full accent-white"
+            className="mt-1 w-full accent-carrot-orange"
           />
         </label>
       </div>

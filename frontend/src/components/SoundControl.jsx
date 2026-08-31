@@ -11,7 +11,7 @@ import { getGlobalMuted, toggleGlobalMuted, subscribeGlobalMuted } from "../lib/
  *   - txt: text color class for the icon
  *   - inactive: text color class for inactive state
  */
-export const SoundControl = ({ className = "", txt = "text-black", inactive = "text-neutral-500" }) => {
+export const SoundControl = ({ className = "", txt = "text-shadow-grey", inactive = "text-taupe" }) => {
   const [muted, setMuted] = useState(getGlobalMuted());
 
   useEffect(() => subscribeGlobalMuted(setMuted), []);

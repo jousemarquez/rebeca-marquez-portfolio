@@ -9,6 +9,7 @@ import {
   isAdminAuthed,
   setAdminAuthed,
   CATEGORIES,
+  ROLES,
   slugify,
   newProjectId,
   getDefaultContent,
@@ -28,7 +29,7 @@ import { CropEditor } from "../components/admin/CropEditor";
 import { SHOWREEL_PLACEMENTS } from "../lib/crop";
 
 const uploadBtnCls =
-  "shrink-0 border border-white/25 px-3 py-2 text-[10px] tracking-[0.22em] uppercase text-white hover:bg-white hover:text-black transition disabled:opacity-30";
+  "shrink-0 border border-ivory-mist/25 px-3 py-2 text-[10px] tracking-[0.22em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition disabled:opacity-30";
 
 const isVimeoUrl = (url) => /vimeo\.com/.test(String(url || ""));
 
@@ -56,7 +57,7 @@ const ImageUrlField = ({
   testId,
   placeholder = "https://res.cloudinary.com/...",
   previewFit = "cover",
-  previewBg = "bg-neutral-800",
+  previewBg = "bg-olive",
   onUploadStart,
 }) => {
   const fileRef = useRef(null);
@@ -93,46 +94,46 @@ const ImageUrlField = ({
         multiple={false}
         className="p-3"
       >
-      <div className="flex gap-2 items-start">
-        <input
-          data-testid={testId}
-          className={inputCls}
-          value={value || ""}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder}
-        />
-        <input
-          ref={fileRef}
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={(e) => handleUpload(e.target.files)}
-        />
-        <button
-          type="button"
-          onClick={() => fileRef.current?.click()}
-          disabled={uploading || !canUpload}
-          className={uploadBtnCls + " self-stretch"}
-          title={canUpload ? cloudinaryFolderHint(projectSlug, assetType) : "Define el slug primero"}
-        >
-          {uploading ? "Subiendo…" : "Subir"}
-        </button>
-      </div>
-      {assetType !== "site" && (
-        <p className="text-[9px] text-neutral-700 mt-1.5 font-mono">
-          Cloudinary → {cloudinaryFolderHint(projectSlug, assetType)}
-        </p>
-      )}
-      {value && (
-        <div className={`mt-2 w-full max-w-[200px] aspect-video ${previewBg} rounded overflow-hidden border border-white/10`}>
-          <img
-            src={value}
-            alt=""
-            className={`w-full h-full ${previewFit === "contain" ? "object-contain p-1" : "object-cover"}`}
-            onError={(e) => { e.target.style.display = "none"; }}
+        <div className="flex gap-2 items-start">
+          <input
+            data-testid={testId}
+            className={inputCls}
+            value={value || ""}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
           />
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => handleUpload(e.target.files)}
+          />
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            disabled={uploading || !canUpload}
+            className={uploadBtnCls + " self-stretch"}
+            title={canUpload ? cloudinaryFolderHint(projectSlug, assetType) : "Define el slug primero"}
+          >
+            {uploading ? "Subiendo…" : "Subir"}
+          </button>
         </div>
-      )}
+        {assetType !== "site" && (
+          <p className="text-[9px] text-ivory-mist/40 mt-1.5 font-mono">
+            Cloudinary → {cloudinaryFolderHint(projectSlug, assetType)}
+          </p>
+        )}
+        {value && (
+          <div className={`mt-2 w-full max-w-[200px] aspect-video ${previewBg} rounded overflow-hidden border border-olive/10`}>
+            <img
+              src={value}
+              alt=""
+              className={`w-full h-full ${previewFit === "contain" ? "object-contain p-1" : "object-cover"}`}
+              onError={(e) => { e.target.style.display = "none"; }}
+            />
+          </div>
+        )}
       </ImageDropZone>
     </Field>
   );
@@ -140,7 +141,7 @@ const ImageUrlField = ({
 
 const Field = ({ label, children }) => (
   <label className="block">
-    <span className="block text-[10px] tracking-[0.28em] uppercase text-neutral-400 mb-2">
+    <span className="block text-[10px] tracking-[0.28em] uppercase text-ivory-mist/50 mb-2">
       {label}
     </span>
     {children}
@@ -148,7 +149,7 @@ const Field = ({ label, children }) => (
 );
 
 const inputCls =
-  "w-full border border-white/20 px-3 py-2 text-sm focus:outline-none focus:border-white/60 bg-[#111] text-white placeholder:text-neutral-500";
+  "w-full border border-olive/20 px-3 py-2 text-sm focus:outline-none focus:border-carrot-orange/60 bg-shadow-grey text-ivory-mist placeholder:text-ivory-mist/40";
 
 const textareaCls = inputCls + " min-h-[90px] resize-y";
 
@@ -159,7 +160,7 @@ const UrlListField = ({
   urls,
   onChange,
   previewFit = "cover",
-  previewBg = "bg-neutral-800",
+  previewBg = "bg-olive",
   projectSlug,
   assetType,
   onUploadStart,
@@ -236,124 +237,124 @@ const UrlListField = ({
       multiple
       className="p-3"
     >
-    <div>
-      <span className="block text-[10px] tracking-[0.28em] uppercase text-neutral-400 mb-2">
-        {label}
-        {urls?.length > 0 && (
-          <span className="ml-2 text-neutral-600 normal-case tracking-normal">
-            · {urls.length} imagen{urls.length !== 1 ? "es" : ""}
-          </span>
-        )}
-      </span>
-
-      {/* Lista de URLs existentes */}
-      {(urls || []).length > 0 && (
-        <ul className="mb-3 space-y-1.5 max-h-64 overflow-y-auto pr-1">
-          {urls.map((url, i) => (
-            <li
-              key={url + i}
-              className="flex items-center gap-2 bg-white/5 border border-white/8 px-2 py-1.5 rounded group"
-            >
-              {/* Preview */}
-              <div className={`shrink-0 w-12 h-8 ${previewBg} rounded overflow-hidden`}>
-                <img
-                  src={url}
-                  alt=""
-                  className={`w-full h-full ${previewFit === "contain" ? "object-contain p-0.5" : "object-cover"}`}
-                  onError={(e) => { e.target.style.display = "none"; }}
-                />
-              </div>
-              {/* URL truncada */}
-              <span className="flex-1 text-[11px] text-neutral-500 truncate font-mono min-w-0">
-                {url}
-              </span>
-              {/* Orden */}
-              <div className="shrink-0 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button
-                  type="button"
-                  onClick={() => move(i, -1)}
-                  disabled={i === 0}
-                  className="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-white disabled:opacity-20 text-[10px]"
-                  aria-label="Subir"
-                >↑</button>
-                <button
-                  type="button"
-                  onClick={() => move(i, 1)}
-                  disabled={i === urls.length - 1}
-                  className="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-white disabled:opacity-20 text-[10px]"
-                  aria-label="Bajar"
-                >↓</button>
-              </div>
-              {/* Eliminar */}
-              <button
-                type="button"
-                onClick={() => remove(i)}
-                className="shrink-0 w-5 h-5 flex items-center justify-center text-neutral-600 hover:text-red-400 transition-colors text-[11px] opacity-0 group-hover:opacity-100"
-                aria-label="Eliminar"
-              >✕</button>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* Input para añadir nuevas URLs o subir archivos */}
-      <div className="flex gap-2 items-start">
-        <textarea
-          className={textareaCls + " min-h-[64px] flex-1 font-mono text-[12px]"}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={canUpload ? "Pega URLs o arrastra imágenes aquí" : "Define el slug del proyecto para subir archivos"}
-          onPaste={(e) =>
-            handleTextareaImagePaste(e, handleUpload, {
-              disabled: !canUpload,
-              disabledMessage: "Define el slug del proyecto antes de subir imágenes",
-            })
-          }
-          onKeyDown={(e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-              e.preventDefault();
-              commit();
-            }
-          }}
-        />
-        <div className="shrink-0 flex flex-col gap-2 self-end">
-          {canUpload && (
-            <>
-              <input
-                ref={fileRef}
-                type="file"
-                accept="image/*"
-                multiple
-                className="hidden"
-                onChange={(e) => handleUpload(e.target.files)}
-              />
-              <button
-                type="button"
-                onClick={() => fileRef.current?.click()}
-                disabled={uploading}
-                className={uploadBtnCls}
-                title={cloudinaryFolderHint(projectSlug, assetType)}
-              >
-                {uploading ? "Subiendo…" : "Subir archivo"}
-              </button>
-            </>
+      <div>
+        <span className="block text-[10px] tracking-[0.28em] uppercase text-ivory-mist/50 mb-2">
+          {label}
+          {urls?.length > 0 && (
+            <span className="ml-2 text-ivory-mist/40 normal-case tracking-normal">
+              · {urls.length} imagen{urls.length !== 1 ? "es" : ""}
+            </span>
           )}
-          <button
-            type="button"
-            onClick={commit}
-            disabled={!input.trim()}
-            className={uploadBtnCls + " disabled:opacity-30"}
-          >
-            Añadir URL
-          </button>
+        </span>
+
+        {/* Lista de URLs existentes */}
+        {(urls || []).length > 0 && (
+          <ul className="mb-3 space-y-1.5 max-h-64 overflow-y-auto pr-1">
+            {urls.map((url, i) => (
+              <li
+                key={url + i}
+                className="flex items-center gap-2 bg-olive/5 border border-olive/8 px-2 py-1.5 rounded group"
+              >
+                {/* Preview */}
+                <div className={`shrink-0 w-12 h-8 ${previewBg} rounded overflow-hidden`}>
+                  <img
+                    src={url}
+                    alt=""
+                    className={`w-full h-full ${previewFit === "contain" ? "object-contain p-0.5" : "object-cover"}`}
+                    onError={(e) => { e.target.style.display = "none"; }}
+                  />
+                </div>
+                {/* URL truncada */}
+                <span className="flex-1 text-[11px] text-ivory-mist/50 truncate font-mono min-w-0">
+                  {url}
+                </span>
+                {/* Orden */}
+                <div className="shrink-0 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button
+                    type="button"
+                    onClick={() => move(i, -1)}
+                    disabled={i === 0}
+                    className="w-5 h-5 flex items-center justify-center text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-20 text-[10px]"
+                    aria-label="Subir"
+                  >↑</button>
+                  <button
+                    type="button"
+                    onClick={() => move(i, 1)}
+                    disabled={i === urls.length - 1}
+                    className="w-5 h-5 flex items-center justify-center text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-20 text-[10px]"
+                    aria-label="Bajar"
+                  >↓</button>
+                </div>
+                {/* Eliminar */}
+                <button
+                  type="button"
+                  onClick={() => remove(i)}
+                  className="shrink-0 w-5 h-5 flex items-center justify-center text-ivory-mist/40 hover:text-red-400 transition-colors text-[11px] opacity-0 group-hover:opacity-100"
+                  aria-label="Eliminar"
+                >✕</button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Input para añadir nuevas URLs o subir archivos */}
+        <div className="flex gap-2 items-start">
+          <textarea
+            className={textareaCls + " min-h-[64px] flex-1 font-mono text-[12px]"}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={canUpload ? "Pega URLs o arrastra imágenes aquí" : "Define el slug del proyecto para subir archivos"}
+            onPaste={(e) =>
+              handleTextareaImagePaste(e, handleUpload, {
+                disabled: !canUpload,
+                disabledMessage: "Define el slug del proyecto antes de subir imágenes",
+              })
+            }
+            onKeyDown={(e) => {
+              if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+                e.preventDefault();
+                commit();
+              }
+            }}
+          />
+          <div className="shrink-0 flex flex-col gap-2 self-end">
+            {canUpload && (
+              <>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="hidden"
+                  onChange={(e) => handleUpload(e.target.files)}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  disabled={uploading}
+                  className={uploadBtnCls}
+                  title={cloudinaryFolderHint(projectSlug, assetType)}
+                >
+                  {uploading ? "Subiendo…" : "Subir archivo"}
+                </button>
+              </>
+            )}
+            <button
+              type="button"
+              onClick={commit}
+              disabled={!input.trim()}
+              className={uploadBtnCls + " disabled:opacity-30"}
+            >
+              Añadir URL
+            </button>
+          </div>
         </div>
+        <p className="text-[9px] text-ivory-mist/40 mt-1.5">
+          {canUpload
+            ? `Cloudinary → ${cloudinaryFolderHint(projectSlug, assetType)} · Arrastra, pega imagen (⌘V) o URL · ⌘+Enter para añadir URL`
+            : "Pega varias URLs a la vez · ⌘+Enter para añadir"}
+        </p>
       </div>
-      <p className="text-[9px] text-neutral-700 mt-1.5">
-        {canUpload
-          ? `Cloudinary → ${cloudinaryFolderHint(projectSlug, assetType)} · Arrastra, pega imagen (⌘V) o URL · ⌘+Enter para añadir URL`
-          : "Pega varias URLs a la vez · ⌘+Enter para añadir"}
-      </p>
-    </div>
     </ImageDropZone>
   );
 };
@@ -443,10 +444,10 @@ const RecognitionsField = ({
       className="p-3"
     >
       <div>
-        <span className="block text-[10px] tracking-[0.28em] uppercase text-neutral-400 mb-2">
+        <span className="block text-[10px] tracking-[0.28em] uppercase text-ivory-mist/50 mb-2">
           Reconocimientos / premios (PNG blanco, fondo transparente)
           {list.length > 0 && (
-            <span className="ml-2 text-neutral-600 normal-case tracking-normal">
+            <span className="ml-2 text-ivory-mist/40 normal-case tracking-normal">
               · {list.length} imagen{list.length !== 1 ? "es" : ""}
             </span>
           )}
@@ -457,9 +458,9 @@ const RecognitionsField = ({
             {list.map((item, i) => (
               <li
                 key={item.url + i}
-                className="flex items-center gap-2 bg-white/5 border border-white/8 px-2 py-1.5 rounded group"
+                className="flex items-center gap-2 bg-olive/5 border border-olive/8 px-2 py-1.5 rounded group"
               >
-                <div className="shrink-0 w-12 h-8 bg-black rounded overflow-hidden">
+                <div className="shrink-0 w-12 h-8 bg-shadow-grey rounded overflow-hidden">
                   <img
                     src={item.url}
                     alt=""
@@ -467,7 +468,7 @@ const RecognitionsField = ({
                     onError={(e) => { e.target.style.display = "none"; }}
                   />
                 </div>
-                <span className="flex-1 text-[11px] text-neutral-500 truncate font-mono min-w-0">
+                <span className="flex-1 text-[11px] text-ivory-mist/50 truncate font-mono min-w-0">
                   {item.url}
                 </span>
                 <div className="shrink-0 flex items-center gap-2">
@@ -479,9 +480,9 @@ const RecognitionsField = ({
                       type="checkbox"
                       checked={item.showOnHome}
                       onChange={() => toggleFlag(i, "showOnHome")}
-                      className="w-3.5 h-3.5 accent-white"
+                      className="w-3.5 h-3.5 accent-carrot-orange"
                     />
-                    <span className="text-[9px] tracking-[0.1em] uppercase text-neutral-500">
+                    <span className="text-[9px] tracking-[0.1em] uppercase text-ivory-mist/50">
                       Home
                     </span>
                   </label>
@@ -493,9 +494,9 @@ const RecognitionsField = ({
                       type="checkbox"
                       checked={item.showOnWork}
                       onChange={() => toggleFlag(i, "showOnWork")}
-                      className="w-3.5 h-3.5 accent-white"
+                      className="w-3.5 h-3.5 accent-carrot-orange"
                     />
-                    <span className="text-[9px] tracking-[0.1em] uppercase text-neutral-500">
+                    <span className="text-[9px] tracking-[0.1em] uppercase text-ivory-mist/50">
                       Work
                     </span>
                   </label>
@@ -505,21 +506,21 @@ const RecognitionsField = ({
                     type="button"
                     onClick={() => move(i, -1)}
                     disabled={i === 0}
-                    className="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-white disabled:opacity-20 text-[10px]"
+                    className="w-5 h-5 flex items-center justify-center text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-20 text-[10px]"
                     aria-label="Subir"
                   >↑</button>
                   <button
                     type="button"
                     onClick={() => move(i, 1)}
                     disabled={i === list.length - 1}
-                    className="w-5 h-5 flex items-center justify-center text-neutral-500 hover:text-white disabled:opacity-20 text-[10px]"
+                    className="w-5 h-5 flex items-center justify-center text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-20 text-[10px]"
                     aria-label="Bajar"
                   >↓</button>
                 </div>
                 <button
                   type="button"
                   onClick={() => remove(i)}
-                  className="shrink-0 w-5 h-5 flex items-center justify-center text-neutral-600 hover:text-red-400 transition-colors text-[11px] opacity-0 group-hover:opacity-100"
+                  className="shrink-0 w-5 h-5 flex items-center justify-center text-ivory-mist/40 hover:text-red-400 transition-colors text-[11px] opacity-0 group-hover:opacity-100"
                   aria-label="Eliminar"
                 >✕</button>
               </li>
@@ -578,7 +579,7 @@ const RecognitionsField = ({
             </button>
           </div>
         </div>
-        <p className="text-[9px] text-neutral-700 mt-1.5">
+        <p className="text-[9px] text-ivory-mist/40 mt-1.5">
           {canUpload
             ? `Cloudinary → ${cloudinaryFolderHint(projectSlug, "recognitions")} · Marca Home y/o Work para tarjetas · Orden = visualización · Ficha: todos`
             : "Marca Home/Work por premio · Ficha del proyecto: todos"}
@@ -618,16 +619,31 @@ const ProjectForm = ({ value, onChange }) => {
           onChange={(e) => update({ slug: slugify(e.target.value) })}
         />
       </Field>
-      <Field label="Category">
+      <Field label="Department">
         <select
           data-testid="form-category"
           className={inputCls}
-          value={value.category || "fiction"}
-          onChange={(e) => update({ category: e.target.value })}
+          value={value.category || "direccion"}
+          onChange={(e) => update({ category: e.target.value, role: "" })}
         >
           {CATEGORIES.map((c) => (
             <option key={c.id} value={c.id}>
               {c.en}
+            </option>
+          ))}
+        </select>
+      </Field>
+      <Field label="Role">
+        <select
+          data-testid="form-role"
+          className={inputCls}
+          value={value.role || ""}
+          onChange={(e) => update({ role: e.target.value })}
+        >
+          <option value="">—</option>
+          {ROLES.filter((r) => r.department === (value.category || "direccion")).map((r) => (
+            <option key={r.id} value={r.id}>
+              {r.en}
             </option>
           ))}
         </select>
@@ -676,6 +692,13 @@ const ProjectForm = ({ value, onChange }) => {
           onChange={(e) => updateI18n("type", "en", e.target.value)}
         />
       </Field>
+      <Field label="Type CA (e.g. Curtmetratge)">
+        <input
+          className={inputCls}
+          value={value.type?.ca || ""}
+          onChange={(e) => updateI18n("type", "ca", e.target.value)}
+        />
+      </Field>
       <ImageUrlField
         label="Cover image"
         testId="form-cover"
@@ -693,17 +716,17 @@ const ProjectForm = ({ value, onChange }) => {
           onChange={(e) => update({ preview_url: e.target.value })}
           placeholder="https://vimeo.com/... o https://youtube.com/watch?v=..."
         />
-        <p className="mt-1 text-[11px] text-neutral-500">
+        <p className="mt-1 text-[11px] text-ivory-mist/50">
           Con URL de vídeo, la página del proyecto se indexa automáticamente como watch page en Google.
           En Obra el vídeo se autoreproduce en la miniatura; en la portada, al pasar el ratón.
         </p>
       </Field>
       {projectVimeoPreview(value) && (
-        <div className="md:col-span-2 rounded-xl border border-white/10 p-4 space-y-3">
-          <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-500">
+        <div className="md:col-span-2 rounded-xl border border-olive/10 p-4 space-y-3">
+          <p className="text-[10px] tracking-[0.28em] uppercase text-ivory-mist/50">
             Reencuadre del vídeo Vimeo (16:9)
           </p>
-          <p className="text-[11px] text-neutral-500 max-w-2xl">
+          <p className="text-[11px] text-ivory-mist/50 max-w-2xl">
             Define qué parte del vídeo se ve en las miniaturas de Obra y en el preview al hover en
             la portada. La imagen de referencia es el thumbnail de Vimeo; no modifica el still de la
             parrilla.
@@ -747,6 +770,13 @@ const ProjectForm = ({ value, onChange }) => {
           onChange={(e) => updateI18n("synopsis", "en", e.target.value)}
         />
       </Field>
+      <Field label="Synopsis CA">
+        <textarea
+          className={textareaCls}
+          value={value.synopsis?.ca || ""}
+          onChange={(e) => updateI18n("synopsis", "ca", e.target.value)}
+        />
+      </Field>
       <div className="md:col-span-2">
         <RecognitionsField
           items={value.recognitions || []}
@@ -780,13 +810,13 @@ const ProjectForm = ({ value, onChange }) => {
               type="checkbox"
               checked={value.published !== false}
               onChange={(e) => update({ published: e.target.checked })}
-              className="w-4 h-4 accent-black"
+              className="w-4 h-4 accent-carrot-orange"
             />
-            <span className="text-sm text-neutral-300">
+            <span className="text-sm text-ivory-mist/80">
               Publicado — visible en el sitio
             </span>
           </label>
-          <p className="mt-2 text-[11px] text-neutral-500">
+          <p className="mt-2 text-[11px] text-ivory-mist/50">
             Portada (orden, tamaño, still): sección «Pantalla principal» más abajo en Admin.
           </p>
         </Field>
@@ -862,9 +892,9 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
   };
 
   return (
-    <div className="border border-white/10 p-6 md:p-8 mb-10" data-testid="admin-home-layout">
+    <div className="border border-olive/10 p-6 md:p-8 mb-10" data-testid="admin-home-layout">
       <h2 className="text-xl tracking-tight mb-2">Pantalla principal</h2>
-      <p className="text-[12px] text-neutral-500 mb-6 max-w-2xl">
+      <p className="text-[12px] text-ivory-mist/50 mb-6 max-w-2xl">
         Qué proyectos salen en la parrilla, su still, tamaño y orden. El reencuadre del vídeo Vimeo
         (miniaturas en Obra y preview en portada) se configura en cada proyecto, junto a la URL de
         preview. El showreel y el máximo de piezas global se ajustan aquí; la URL del reel en Site.
@@ -891,9 +921,9 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
           return (
             <li
               key={row.id}
-              className="rounded-xl border border-white/10 p-4 grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-4"
+              className="rounded-xl border border-olive/10 p-4 grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-4"
             >
-              <div className="h-24 lg:h-full min-h-[96px] rounded-lg overflow-hidden bg-black flex items-center justify-center">
+              <div className="h-24 lg:h-full min-h-[96px] rounded-lg overflow-hidden bg-olive flex items-center justify-center">
                 {(row.home_still || row.cover) && (
                   <img
                     src={row.home_still || row.cover}
@@ -904,7 +934,7 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
               </div>
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-sm text-white">{row.title}</p>
+                  <p className="text-sm text-ivory-mist">{row.title}</p>
                   <div className="flex items-center gap-3">
                     {row.home_featured && (
                       <div className="flex items-center gap-1">
@@ -912,7 +942,7 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
                           type="button"
                           onClick={() => move(row.id, -1)}
                           disabled={featIndex <= 0}
-                          className="p-1.5 border border-white/20 text-white hover:bg-white hover:text-black disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white transition"
+                          className="p-1.5 border border-olive/20 text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ivory-mist transition"
                           aria-label="Subir"
                           title="Subir"
                         >
@@ -922,7 +952,7 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
                           type="button"
                           onClick={() => move(row.id, 1)}
                           disabled={featIndex < 0 || featIndex >= featuredList.length - 1}
-                          className="p-1.5 border border-white/20 text-white hover:bg-white hover:text-black disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white transition"
+                          className="p-1.5 border border-olive/20 text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ivory-mist transition"
                           aria-label="Bajar"
                           title="Bajar"
                         >
@@ -930,12 +960,12 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
                         </button>
                       </div>
                     )}
-                    <label className="flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-neutral-400">
+                    <label className="flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-ivory-mist/50">
                       <input
                         type="checkbox"
                         checked={row.home_featured}
                         onChange={(e) => patch(row.id, { home_featured: e.target.checked })}
-                        className="accent-white"
+                        className="accent-carrot-orange"
                       />
                       En home
                     </label>
@@ -970,11 +1000,10 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
                         key={url}
                         type="button"
                         onClick={() => patch(row.id, { home_still: url })}
-                        className={`h-12 w-[4.5rem] overflow-hidden rounded-md border bg-black ${
-                          (row.home_still || row.cover) === url
-                            ? "border-white"
-                            : "border-white/15 hover:border-white/40"
-                        }`}
+                        className={`h-12 w-[4.5rem] overflow-hidden rounded-md border bg-olive ${(row.home_still || row.cover) === url
+                            ? "border-carrot-orange"
+                            : "border-olive/15 hover:border-olive/40"
+                          }`}
                         title="Usar este still"
                       >
                         <img src={url} alt="" className="h-full w-full object-contain" />
@@ -991,7 +1020,7 @@ const HomeLayoutSection = ({ content, onSave, saving }) => {
         data-testid="save-home-layout"
         onClick={handleSave}
         disabled={saving}
-        className="mt-6 border border-white/30 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-white hover:bg-white hover:text-black transition disabled:opacity-50"
+        className="mt-6 border border-ivory-mist/30 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition disabled:opacity-50"
       >
         {saving ? "Saving…" : "Guardar portada"}
       </button>
@@ -1034,7 +1063,7 @@ const SiteSection = ({ content, onSave, saving }) => {
   };
 
   return (
-    <div className="border border-white/10 p-6 md:p-8 mb-10">
+    <div className="border border-olive/10 p-6 md:p-8 mb-10">
       <h2 className="text-xl tracking-tight mb-6">Site</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <Field label="Name">
@@ -1087,7 +1116,7 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updI18n("meta_description", "es", e.target.value)}
             placeholder="Texto biográfico breve para resultados de búsqueda (~150–320 caracteres)"
           />
-          <p className="text-[9px] text-neutral-600 mt-1">
+          <p className="text-[9px] text-ivory-mist/40 mt-1">
             {(draft.site.meta_description?.es || "").length} caracteres
           </p>
         </Field>
@@ -1098,8 +1127,19 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updI18n("meta_description", "en", e.target.value)}
             placeholder="Short bio for search results (~150–320 characters)"
           />
-          <p className="text-[9px] text-neutral-600 mt-1">
+          <p className="text-[9px] text-ivory-mist/40 mt-1">
             {(draft.site.meta_description?.en || "").length} caracteres
+          </p>
+        </Field>
+        <Field label="Meta description CA (Google)">
+          <textarea
+            className={textareaCls + " min-h-[88px]"}
+            value={draft.site.meta_description?.ca || ""}
+            onChange={(e) => updI18n("meta_description", "ca", e.target.value)}
+            placeholder="Text biogràfic breu per a resultats de cerca (~150–320 caràcters)"
+          />
+          <p className="text-[9px] text-ivory-mist/40 mt-1">
+            {(draft.site.meta_description?.ca || "").length} caracteres
           </p>
         </Field>
         <Field label="Title ES">
@@ -1116,6 +1156,13 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updI18n("title", "en", e.target.value)}
           />
         </Field>
+        <Field label="Title CA">
+          <input
+            className={inputCls}
+            value={draft.site.title?.ca || ""}
+            onChange={(e) => updI18n("title", "ca", e.target.value)}
+          />
+        </Field>
         <Field label="Tagline ES">
           <input
             className={inputCls}
@@ -1130,6 +1177,13 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updI18n("tagline", "en", e.target.value)}
           />
         </Field>
+        <Field label="Tagline CA">
+          <input
+            className={inputCls}
+            value={draft.site.tagline?.ca || ""}
+            onChange={(e) => updI18n("tagline", "ca", e.target.value)}
+          />
+        </Field>
         <Field label="Email">
           <input
             className={inputCls}
@@ -1137,12 +1191,12 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updSocial("email", e.target.value)}
           />
         </Field>
-        <Field label="Teléfono (ej. +34647005955)">
+        <Field label="Teléfono (ej. +34665710596)">
           <input
             className={inputCls}
             value={draft.site.social.phone || ""}
             onChange={(e) => updSocial("phone", e.target.value)}
-            placeholder="+34647005955"
+            placeholder="+34665710596"
           />
         </Field>
         <Field label="Instagram URL">
@@ -1175,7 +1229,7 @@ const SiteSection = ({ content, onSave, saving }) => {
         </Field>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         <Field label="About ES">
           <textarea
             className={textareaCls + " min-h-[180px]"}
@@ -1190,6 +1244,13 @@ const SiteSection = ({ content, onSave, saving }) => {
             onChange={(e) => updI18n("about", "en", e.target.value)}
           />
         </Field>
+        <Field label="About CA">
+          <textarea
+            className={textareaCls + " min-h-[180px]"}
+            value={draft.about?.ca || ""}
+            onChange={(e) => updI18n("about", "ca", e.target.value)}
+          />
+        </Field>
       </div>
 
       <div className="mt-6 flex gap-3">
@@ -1197,7 +1258,7 @@ const SiteSection = ({ content, onSave, saving }) => {
           data-testid="save-site"
           onClick={handleSave}
           disabled={saving}
-          className="border border-white/30 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-white hover:bg-white hover:text-black transition disabled:opacity-50"
+          className="border border-ivory-mist/30 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save site"}
         </button>
@@ -1259,15 +1320,15 @@ export default function Admin() {
 
   if (!authed) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-shadow-grey flex items-center justify-center px-6">
         <div className="w-full max-w-sm" data-testid="admin-login">
           <Link
             to="/"
-            className="text-[11px] tracking-[0.28em] uppercase text-neutral-400 mb-10 inline-block hover:text-white"
+            className="text-[11px] tracking-[0.28em] uppercase text-ivory-mist/50 mb-10 inline-block hover:text-ivory-mist"
           >
             ← Volver
           </Link>
-          <h1 className="text-3xl tracking-tight mb-8 font-light text-white">Admin</h1>
+          <h1 className="text-3xl tracking-tight mb-8 font-light text-ivory-mist">Admin</h1>
           <input
             type="password"
             data-testid="admin-password"
@@ -1285,7 +1346,7 @@ export default function Admin() {
             type="button"
             onClick={tryLogin}
             disabled={loginLoading}
-            className="mt-4 w-full border border-white/30 px-5 py-3 text-[11px] tracking-[0.28em] uppercase text-white hover:bg-white hover:text-black transition disabled:opacity-50"
+            className="mt-4 w-full border border-ivory-mist/30 px-5 py-3 text-[11px] tracking-[0.28em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition disabled:opacity-50"
           >
             {loginLoading ? "Entrando…" : "Entrar"}
           </button>
@@ -1318,7 +1379,8 @@ export default function Admin() {
     setDraft({
       id: newProjectId(),
       slug: "",
-      category: "fiction",
+      category: "direccion",
+      role: "",
       title: "",
       year: new Date().getFullYear(),
       type: { es: "", en: "" },
@@ -1432,8 +1494,8 @@ export default function Admin() {
 
   if (contentLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <p className="text-[11px] tracking-[0.28em] uppercase text-neutral-500">
+      <div className="min-h-screen bg-shadow-grey flex items-center justify-center">
+        <p className="text-[11px] tracking-[0.28em] uppercase text-ivory-mist/50">
           Cargando…
         </p>
       </div>
@@ -1441,12 +1503,12 @@ export default function Admin() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white" data-testid="admin-panel">
-      <div className="border-b border-white/10 px-6 md:px-12 py-5 flex items-center justify-between sticky top-0 bg-black z-30">
+    <div className="min-h-screen bg-shadow-grey text-ivory-mist" data-testid="admin-panel">
+      <div className="border-b border-olive/10 px-6 md:px-12 py-5 flex items-center justify-between sticky top-0 bg-shadow-grey z-30">
         <div className="flex items-center gap-6">
           <Link
             to="/"
-            className="text-[11px] tracking-[0.28em] uppercase text-neutral-400 hover:text-white"
+            className="text-[11px] tracking-[0.28em] uppercase text-ivory-mist/50 hover:text-ivory-mist"
           >
             ← Site
           </Link>
@@ -1456,14 +1518,14 @@ export default function Admin() {
           <button
             data-testid="admin-export"
             onClick={exportJson}
-            className="border border-white/30 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-white hover:bg-white hover:text-black transition"
+            className="border border-ivory-mist/30 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition"
           >
             Export
           </button>
           <button
             data-testid="admin-import"
             onClick={() => fileRef.current?.click()}
-            className="border border-white/30 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-white hover:bg-white hover:text-black transition"
+            className="border border-ivory-mist/30 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition"
           >
             Import
           </button>
@@ -1478,7 +1540,7 @@ export default function Admin() {
           <button
             onClick={reset}
             disabled={saving}
-            className="border border-white/20 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-neutral-400 hover:text-white disabled:opacity-50"
+            className="border border-olive/20 px-3 md:px-4 py-2 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-50"
           >
             Reset
           </button>
@@ -1488,7 +1550,7 @@ export default function Admin() {
               setAdminAuthed(false);
               setAuthed(false);
             }}
-            className="text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-neutral-400 hover:text-white ml-2"
+            className="text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-ivory-mist/50 hover:text-ivory-mist ml-2"
           >
             Logout
           </button>
@@ -1499,7 +1561,7 @@ export default function Admin() {
         <SiteSection content={content} onSave={onSave} saving={saving} />
         <HomeLayoutSection content={content} onSave={onSave} saving={saving} />
 
-        <div className="border border-white/10 p-6 md:p-8">
+        <div className="border border-olive/10 p-6 md:p-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl tracking-tight">
               Projects ({content.projects.length})
@@ -1507,7 +1569,7 @@ export default function Admin() {
             <button
               data-testid="admin-add-project"
               onClick={startNew}
-              className="border border-white/30 px-4 py-2 text-[11px] tracking-[0.24em] uppercase text-white hover:bg-white hover:text-black transition"
+              className="border border-ivory-mist/30 px-4 py-2 text-[11px] tracking-[0.24em] uppercase text-ivory-mist hover:bg-ivory-mist hover:text-shadow-grey transition"
             >
               + Add project
             </button>
@@ -1515,10 +1577,10 @@ export default function Admin() {
 
           {editing !== null && draft && (
             <div
-              className="border border-white/20 p-5 md:p-6 mb-8 bg-[#0a0a0a]"
+              className="border border-olive/20 p-5 md:p-6 mb-8 bg-shadow-grey"
               data-testid="admin-project-form"
             >
-              <p className="text-[11px] tracking-[0.28em] uppercase text-neutral-400 mb-4">
+              <p className="text-[11px] tracking-[0.28em] uppercase text-ivory-mist/50 mb-4">
                 {editing === "new" ? "New project" : "Edit project"}
               </p>
               <ProjectForm value={draft} onChange={setDraft} />
@@ -1527,13 +1589,13 @@ export default function Admin() {
                   data-testid="admin-save-project"
                   onClick={saveEdit}
                   disabled={saving}
-                  className="border border-white bg-white text-black px-5 py-2 text-[11px] tracking-[0.28em] uppercase hover:bg-transparent hover:text-white transition disabled:opacity-50"
+                  className="border border-olive bg-olive text-ivory-mist px-5 py-2 text-[11px] tracking-[0.28em] uppercase hover:bg-carrot-orange hover:border-carrot-orange transition disabled:opacity-50"
                 >
                   {saving ? "Saving…" : "Save"}
                 </button>
                 <button
                   onClick={cancelEdit}
-                  className="border border-white/20 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-neutral-400 hover:text-white"
+                  className="border border-olive/20 px-5 py-2 text-[11px] tracking-[0.28em] uppercase text-ivory-mist/50 hover:text-ivory-mist"
                 >
                   Cancel
                 </button>
@@ -1541,84 +1603,83 @@ export default function Admin() {
             </div>
           )}
 
-          <ul className="divide-y divide-white/10">
+          <ul className="divide-y divide-olive/10">
             {content.projects.map((p, i) => {
               const videoSeo = getProjectVideoSeoLabel(p);
               return (
-              <li
-                key={p.id}
-                data-testid={`admin-row-${p.slug}`}
-                className="py-4 flex items-center gap-4"
-              >
-                <div className="w-16 h-12 bg-neutral-800 overflow-hidden shrink-0">
-                  {p.cover && (
-                    <img
-                      src={p.cover}
-                      alt=""
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <p className="text-sm truncate">{p.title || <em>untitled</em>}</p>
-                    {p.published === false && (
-                      <span className="shrink-0 text-[9px] tracking-[0.2em] uppercase text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5">
-                        Draft
-                      </span>
+                <li
+                  key={p.id}
+                  data-testid={`admin-row-${p.slug}`}
+                  className="py-4 flex items-center gap-4"
+                >
+                  <div className="w-16 h-12 bg-olive overflow-hidden shrink-0">
+                    {p.cover && (
+                      <img
+                        src={p.cover}
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
                     )}
-                    <span
-                      title={videoSeo.title}
-                      className={`shrink-0 text-[9px] tracking-[0.18em] uppercase px-1.5 py-0.5 border ${
-                        videoSeo.status === "ok"
-                          ? "text-emerald-700 bg-emerald-50 border-emerald-200"
-                          : videoSeo.status === "draft"
-                            ? "text-neutral-500 bg-neutral-100 border-neutral-200"
-                            : "text-neutral-500 bg-neutral-50 border-neutral-200"
-                      }`}
-                    >
-                      {videoSeo.label}
-                    </span>
                   </div>
-                  <p className="text-[11px] tracking-[0.2em] uppercase text-neutral-400 truncate">
-                    {p.category} · {p.year} · {p.director}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1 md:gap-2">
-                  <button
-                    onClick={() => move(i, -1)}
-                    disabled={saving}
-                    className="px-2 py-1 text-xs text-neutral-400 hover:text-white disabled:opacity-30"
-                    aria-label="Move up"
-                  >
-                    ↑
-                  </button>
-                  <button
-                    onClick={() => move(i, 1)}
-                    disabled={saving}
-                    className="px-2 py-1 text-xs text-neutral-400 hover:text-white disabled:opacity-30"
-                    aria-label="Move down"
-                  >
-                    ↓
-                  </button>
-                  <button
-                    data-testid={`admin-edit-${p.slug}`}
-                    onClick={() => startEdit(i)}
-                    className="border border-white/20 px-3 py-1 text-[10px] tracking-[0.24em] uppercase text-white hover:border-white"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    data-testid={`admin-delete-${p.slug}`}
-                    onClick={() => deleteAt(i)}
-                    disabled={saving}
-                    className="border border-white/20 px-3 py-1 text-[10px] tracking-[0.24em] uppercase text-red-400 hover:border-red-400 disabled:opacity-30"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
-            );
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="text-sm truncate">{p.title || <em>untitled</em>}</p>
+                      {p.published === false && (
+                        <span className="shrink-0 text-[9px] tracking-[0.2em] uppercase text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5">
+                          Draft
+                        </span>
+                      )}
+                      <span
+                        title={videoSeo.title}
+                        className={`shrink-0 text-[9px] tracking-[0.18em] uppercase px-1.5 py-0.5 border ${videoSeo.status === "ok"
+                            ? "text-emerald-700 bg-emerald-50 border-emerald-200"
+                            : videoSeo.status === "draft"
+                              ? "text-neutral-500 bg-neutral-100 border-neutral-200"
+                              : "text-neutral-500 bg-neutral-50 border-neutral-200"
+                          }`}
+                      >
+                        {videoSeo.label}
+                      </span>
+                    </div>
+                    <p className="text-[11px] tracking-[0.2em] uppercase text-ivory-mist/50 truncate">
+                      {p.category} · {p.year} · {p.director}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <button
+                      onClick={() => move(i, -1)}
+                      disabled={saving}
+                      className="px-2 py-1 text-xs text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-30"
+                      aria-label="Move up"
+                    >
+                      ↑
+                    </button>
+                    <button
+                      onClick={() => move(i, 1)}
+                      disabled={saving}
+                      className="px-2 py-1 text-xs text-ivory-mist/50 hover:text-ivory-mist disabled:opacity-30"
+                      aria-label="Move down"
+                    >
+                      ↓
+                    </button>
+                    <button
+                      data-testid={`admin-edit-${p.slug}`}
+                      onClick={() => startEdit(i)}
+                      className="border border-olive/20 px-3 py-1 text-[10px] tracking-[0.24em] uppercase text-ivory-mist hover:border-carrot-orange"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      data-testid={`admin-delete-${p.slug}`}
+                      onClick={() => deleteAt(i)}
+                      disabled={saving}
+                      className="border border-olive/20 px-3 py-1 text-[10px] tracking-[0.24em] uppercase text-red-400 hover:border-red-400 disabled:opacity-30"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              );
             })}
           </ul>
         </div>

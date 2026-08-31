@@ -34,15 +34,15 @@ export const ProjectCard = ({
   /** Recorte 16:9 para la miniatura Vimeo al hover/reproducir. */
   previewCrop,
 }) => {
-  const [inView, setInView]           = useState(false);
-  const [playInView, setPlayInView]   = useState(false);
-  const [hovered, setHovered]         = useState(false);
+  const [inView, setInView] = useState(false);
+  const [playInView, setPlayInView] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [previewVisible, setPreviewVisible] = useState(false);
-  const cardRef      = useRef(null);
-  const touchActive  = useRef(false);
+  const cardRef = useRef(null);
+  const touchActive = useRef(false);
 
   const previewKey = `card-preview-${project.slug}`;
-  const heroKey    = "hero-showreel";
+  const heroKey = "hero-showreel";
 
   const rawPreviewUrl =
     project.preview_url ||
@@ -52,15 +52,15 @@ export const ProjectCard = ({
   const previewUrl =
     rawPreviewUrl && !isYoutubeUrl(rawPreviewUrl) ? rawPreviewUrl : null;
 
-  const coverIsImage  = project.cover && !isVideoUrl(project.cover);
-  const imageUrl      = imageOverride || (coverIsImage ? project.cover : project.poster);
-  const cardImage     = imageUrl
+  const coverIsImage = project.cover && !isVideoUrl(project.cover);
+  const imageUrl = imageOverride || (coverIsImage ? project.cover : project.poster);
+  const cardImage = imageUrl
     ? cloudinaryResponsive(
-        imageUrl,
-        cardSurface === "home"
-          ? { widths: [480, 720, 1080, 1440, 1800], sizes: "(min-width: 1024px) 50vw, 100vw", quality: "good" }
-          : eager ? CARD_PRESETS.eager : CARD_PRESETS.lazy,
-      )
+      imageUrl,
+      cardSurface === "home"
+        ? { widths: [480, 720, 1080, 1440, 1800], sizes: "(min-width: 1024px) 50vw, 100vw", quality: "good" }
+        : eager ? CARD_PRESETS.eager : CARD_PRESETS.lazy,
+    )
     : null;
 
   const recognitions = getCardRecognitions(project, cardSurface);
@@ -103,7 +103,7 @@ export const ProjectCard = ({
   // Con alwaysPlay el VideoPlayer permanece montado aunque la tarjeta esté
   // oculta por el filtro de categoría, evitando así reiniciar la reproducción.
   const shouldPreload = Boolean(previewUrl && (alwaysPlay || inView || hovered));
-  const shouldPlay    = Boolean(previewUrl && (hovered || (alwaysPlay && playInView)));
+  const shouldPlay = Boolean(previewUrl && (hovered || (alwaysPlay && playInView)));
 
   const onMouseEnter = () => {
     setHovered(true);
@@ -169,11 +169,10 @@ export const ProjectCard = ({
       onTouchCancel={onTouchEnd}
     >
       <div
-        className={`relative overflow-hidden bg-neutral-950 ${sizeClass} w-full shadow-[0_18px_50px_-28px_rgba(0,0,0,0.85)] ring-1 ring-white/10 transition-all duration-500 ease-out group-hover:shadow-[0_28px_70px_-24px_rgba(0,0,0,0.9)] group-hover:ring-white/20 ${
-          noHoverScale ? "" : "group-hover:scale-[1.02] group-active:scale-[0.99]"
-        } ${organicRadius}`}
+        className={`relative overflow-hidden bg-olive ${sizeClass} w-full shadow-[0_18px_50px_-28px_rgba(0,0,0,0.85)] ring-1 ring-olive/10 transition-all duration-500 ease-out group-hover:shadow-[0_28px_70px_-24px_rgba(0,0,0,0.9)] group-hover:ring-carrot-orange/20 ${noHoverScale ? "" : "group-hover:scale-[1.02] group-active:scale-[0.99]"
+          }`}
       >
-        <div className="absolute inset-0 z-0 bg-neutral-950" />
+        <div className="absolute inset-0 z-0 bg-olive" />
 
         {cardImage && (
           <img
@@ -186,13 +185,12 @@ export const ProjectCard = ({
             fetchPriority={eager ? "high" : "auto"}
             width={imgW}
             height={imgH}
-            className={`absolute inset-0 z-[3] w-full h-full ${contain ? "object-contain" : "object-cover"} transition-all duration-300 ease-out ${
-              previewVisible
+            className={`absolute inset-0 z-[3] w-full h-full ${contain ? "object-contain" : "object-cover"} transition-all duration-300 ease-out ${previewVisible
                 ? contain || isHome
                   ? "opacity-0"
                   : "opacity-0 scale-[1.03]"
                 : "opacity-100 scale-100"
-            }`}
+              }`}
           />
         )}
 
@@ -206,9 +204,8 @@ export const ProjectCard = ({
             loop
             cover={!contain}
             crop={previewCrop}
-            className={`absolute inset-0 z-[1] w-full h-full bg-black transition-opacity duration-300 ${
-              previewVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 z-[1] w-full h-full bg-shadow-grey transition-opacity duration-300 ${previewVisible ? "opacity-100" : "opacity-0"
+              }`}
             testId={`card-preview-${project.slug}`}
             interactive={false}
             onPlay={() => setPreviewVisible(true)}
@@ -216,7 +213,7 @@ export const ProjectCard = ({
         )}
 
         {/* Gradiente permanente para legibilidad de la info */}
-        <div className="pointer-events-none absolute inset-0 z-[4] bg-gradient-to-t from-black/90 via-black/15 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-[4] bg-gradient-to-t from-shadow-grey/90 via-shadow-grey/15 to-transparent" />
 
         {/* Info overlay — título siempre visible; detalles solo en hover */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] p-4 md:p-5">
@@ -224,30 +221,26 @@ export const ProjectCard = ({
             <div className="min-w-0 flex-1">
               {typeof index === "number" && (
                 <span
-                  className={`block mb-1 text-[10px] tracking-[0.28em] uppercase text-white/50 transition-all duration-300 ${
-                    hovered ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`block mb-1 text-[10px] tracking-[0.28em] uppercase text-ivory-mist/50 transition-all duration-300 ${hovered ? "opacity-100" : "opacity-0"
+                    }`}
                 >
                   {String(index + 1).padStart(3, "0")}
                 </span>
               )}
               <h3
-                className={`${
-                  compact ? "text-sm md:text-base" : "text-base md:text-lg lg:text-xl"
-                } font-light tracking-tight text-white leading-tight truncate`}
+                className={`${compact ? "text-sm md:text-base" : "text-base md:text-lg lg:text-xl"
+                  } font-light tracking-tight text-ivory-mist leading-tight truncate`}
               >
                 {project.title}
               </h3>
               <div
-                className={`relative mt-1 ${
-                  hasCardRecognitions ? "h-5 sm:h-[22px] md:h-6" : "min-h-[14px] md:min-h-[16px]"
-                }`}
+                className={`relative mt-1 ${hasCardRecognitions ? "h-5 sm:h-[22px] md:h-6" : "min-h-[14px] md:min-h-[16px]"
+                  }`}
               >
                 {hasCardRecognitions && (
                   <div
-                    className={`absolute inset-0 flex items-center gap-0.5 sm:gap-1 transition-all duration-300 ${
-                      hovered ? "opacity-0 translate-y-1" : "opacity-90 translate-y-0"
-                    }`}
+                    className={`absolute inset-0 flex items-center gap-0.5 sm:gap-1 transition-all duration-300 ${hovered ? "opacity-0 translate-y-1" : "opacity-90 translate-y-0"
+                      }`}
                     aria-hidden={hovered}
                   >
                     {recognitions.map((item, i) => (
@@ -263,20 +256,17 @@ export const ProjectCard = ({
                   </div>
                 )}
                 <p
-                  className={`${
-                    hasCardRecognitions ? "absolute inset-0 flex items-center" : ""
-                  } text-[9px] md:text-[10px] tracking-[0.22em] uppercase text-white/60 truncate transition-all duration-300 ${
-                    hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
-                  }`}
+                  className={`${hasCardRecognitions ? "absolute inset-0 flex items-center" : ""
+                    } text-[9px] md:text-[10px] tracking-[0.22em] uppercase text-ivory-mist/60 truncate transition-all duration-300 ${hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+                    }`}
                 >
                   {project.director ? `${project.director} · ` : ""}{tr(project.type, lang)}
                 </p>
               </div>
             </div>
             <span
-              className={`mb-0.5 shrink-0 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-white/55 transition-all duration-300 ${
-                hovered ? "opacity-100" : "opacity-0"
-              }`}
+              className={`mb-0.5 shrink-0 text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-ivory-mist/55 transition-all duration-300 ${hovered ? "opacity-100" : "opacity-0"
+                }`}
             >
               {project.year}
             </span>

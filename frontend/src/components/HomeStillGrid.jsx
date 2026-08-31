@@ -3,7 +3,7 @@ import { ProjectCard } from "./ProjectCard";
 import { packJustified, DEFAULT_RATIO } from "../lib/justifiedLayout";
 import { stripCloudinaryTransforms } from "../lib/cloudinary";
 
-const GAP = 16;
+const GAP = 3;
 
 export function HomeStillGrid({ tiles, lang }) {
   const wrapRef = useRef(null);
@@ -64,10 +64,10 @@ export function HomeStillGrid({ tiles, lang }) {
     () =>
       packJustified(items, width, {
         gap: GAP,
-        minH: width < 640 ? 180 : 240,
-        maxH: Math.round(windowH * (width < 640 ? 0.48 : 0.46)),
+        minH: width < 1024 ? 180 : 240,
+        maxH: Math.round(windowH * (width < 1024 ? 0.48 : 0.46)),
         windowH,
-        maxPerRow: width < 640 ? 1 : 2,
+        maxPerRow: width < 1024 ? 1 : 2,
         soloAll: false,
       }),
     [items, width, windowH],

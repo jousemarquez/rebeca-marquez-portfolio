@@ -46,8 +46,8 @@ export const VideoPlayer = ({
 
   const vimeoId = extractVimeoId(url);
   const ytId = !vimeoId ? extractYoutubeId(url) : null;
-  // API solo en tarjetas (background + control playing); hero usa iframe directo
-  const useYtApi = Boolean(ytId && background);
+  // API en tarjetas (background) y en hero/interactivo (necesita play/mute/eventos programáticos).
+  const useYtApi = Boolean(ytId && (background || interactive));
 
   const handleReady = useCallback(() => {
     if (readyCalledRef.current) return;
@@ -155,14 +155,19 @@ export const VideoPlayer = ({
       .then((YT) => {
         if (cancelled || !containerRef.current) return;
 
-        const shouldMute = background || muted || getGlobalMuted();
+        const shouldAutoplay =
+          playing !== false && (autoplay || background || playing === true);
+        // El autoplay con sonido lo bloquean los navegadores salvo con gesto previo:
+        // arrancamos en mute cuando hay un onReady que luego decide si desmutear
+        // (p. ej. Showreel), igual que hace background siempre.
+        const shouldMute = background || muted || getGlobalMuted() || Boolean(onReady && shouldAutoplay);
         const shouldLoop = loop || background;
 
         const ytPlayer = new YT.Player(containerRef.current, {
           videoId: ytId,
           playerVars: {
             autoplay: 0,
-            controls: 0,
+            controls: background ? 0 : 1,
             modestbranding: 1,
             rel: 0,
             playsinline: 1,
@@ -187,7 +192,7 @@ export const VideoPlayer = ({
 
               handleReady();
 
-              if (playing === true) {
+              if (shouldAutoplay) {
                 event.target.playVideo();
               }
             },
@@ -259,14 +264,14 @@ export const VideoPlayer = ({
     return (
       <div
         data-testid={testId}
-        className={`flex items-center justify-center bg-neutral-100 dark:bg-neutral-900 text-neutral-500 text-sm ${className}`}
+        className={`flex items-center justify-center bg-ivory-mist border border-olive/15 text-taupe text-sm ${className}`}
       >
         Video URL invalid
       </div>
     );
   }
 
-  const iframeCls = `absolute inset-0 h-full w-full border-0 bg-black [color-scheme:dark] ${interactive ? "" : "pointer-events-none"}`;
+  const iframeCls = `absolute inset-0 h-full w-full border-0 bg-shadow-grey [color-scheme:dark] ${interactive ? "" : "pointer-events-none"}`;
   const shouldCover = cover === true;
   const cropVars = crop && !isFullCropNormalized(crop)
     ? {
@@ -278,7 +283,7 @@ export const VideoPlayer = ({
 
   return (
     <div
-      className={`relative w-full h-full bg-black ${shouldCover ? "video-bg-cover" : ""} ${className} ${interactive ? "" : "pointer-events-none"}`}
+      className={`relative w-full h-full bg-shadow-grey ${shouldCover ? "video-bg-cover" : ""} ${className} ${interactive ? "" : "pointer-events-none"}`}
       data-testid={testId}
       style={cropVars}
     >
@@ -295,7 +300,7 @@ export const VideoPlayer = ({
       ) : useYtApi ? (
         <div
           ref={containerRef}
-          className={`absolute inset-0 h-full w-full overflow-hidden bg-black ${interactive ? "" : "pointer-events-none"}`}
+          className={`absolute inset-0 h-full w-full overflow-hidden bg-shadow-grey ${interactive ? "" : "pointer-events-none"}`}
         />
       ) : (
         <iframe
@@ -310,7 +315,7 @@ export const VideoPlayer = ({
       )}
       {!background && (
         <div
-          className={`pointer-events-none absolute inset-0 z-[1] bg-black transition-opacity duration-500 ${ready ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          className={`pointer-events-none absolute inset-0 z-[1] bg-shadow-grey transition-opacity duration-500 ${ready ? "opacity-0 pointer-events-none" : "opacity-100"}`}
         />
       )}
     </div>
@@ -364,6 +369,13 @@ const createYoutubeAdapter = (player) => ({
       try {
         if (val) player.mute();
         else player.unMute();
+      } catch {}
+      resolve();
+    }),
+  setVolume: (val) =>
+    new Promise((resolve) => {
+      try {
+        player.setVolume(Math.round(Number(val) * 100));
       } catch {}
       resolve();
     }),
