@@ -1,0 +1,638 @@
+{
+  "_README": "Lee src/data/CONTENT_GUIDE.md para saber cómo añadir/eliminar/modificar proyectos. Plantilla lista para copiar en src/data/PROJECT_TEMPLATE.json.",
+  "_HOW_TO_ADD_PROJECT": "Copia el objeto de PROJECT_TEMPLATE.json y pégalo dentro del array 'projects' de abajo, en la posición donde quieras que aparezca.",
+  "_HOW_TO_REMOVE_PROJECT": "Borra el objeto entero del proyecto (incluida la coma).",
+  "_HOW_TO_MODIFY_PROJECT": "Edita los campos del proyecto correspondiente.",
+  "site": {
+    "name": "Rebeca Márquez",
+    "title": {
+      "es": "Dirección y Producción",
+      "en": "Audiovisual Producer",
+      "ca": "Direcció y Producció"
+    },
+    "tagline": {
+      "es": null,
+      "en": null,
+      "ca": null
+    },
+    "showreel_url": "https://www.youtube.com/watch?v=jjQTMT2_SPI",
+    "showreel_placement": "nav",
+    "home_max": 12,
+    "about_image": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788128839/foto-about-me.webp",
+    "about_photo_caption": "En la industria audiovisual",
+    "meta_description": {
+      "es": "Rebeca Márquez Rubio, Dirección y Producción con experiencia en ficción, documental, publicidad y videoclips. Especializada en producción integral de contenidos audiovisuales de alta calidad.",
+      "en": "Rebeca Márquez Rubio, Audiovisual Producer with experience in fiction, documentary, commercials and music videos. Specialized in comprehensive audiovisual content production.",
+      "ca": "Rebeca Márquez Rubio, Dirección y Producción amb experiència en ficció, documental, publicitat i videoclips. Especialitzada en producció integral de continguts audiovisuals d'alta qualitat."
+    },
+    "logo_white": "/remarubi-logo.svg",
+    "social": {
+      "phone": "+34665710596",
+      "email": "remarubi.av@gmail.com",
+      "instagram": "https://www.instagram.com/remarubi",
+      "linkedin": "https://linkedin.com/in/remarubi",
+      "imdb": "https://www.imdb.com/es-es/name/nm15995782/"
+    }
+  },
+  "about": {
+    "es": "Me especializo en la ayudantía de dirección, un puesto donde confluyen de forma natural mi amor por la dirección y la producción, aunando mi perfil creativo y logístico.\n\nAmo el trabajo en equipo, estar en el rodaje, terciar entre un departamento y otro, y conocer personas nuevas en cada proyecto. Esa energía de set es lo que me impulsa a planificar, coordinar y dar vida a cada obra desde dentro.\n\nMi recorrido abarca piezas seleccionadas en festivales como el SEFF, Málaga (MAFIZ) o los Premios Carmen y Asecan. Desde la dirección de proyectos como Así Son hasta la producción, sigo apostando por contar historias con identidad.",
+    "en": "I specialize in assistant directing, a role where my love for directing and producing come together naturally, combining my creative and logistical sides.\n\nI love working as a team, being on set, mediating between one department and another, and meeting new people on every project. That set energy is what drives me to plan, coordinate, and bring each work to life from within.\n\nMy path includes work selected at festivals such as SEFF, Málaga (MAFIZ), and the Carmen and Asecan Awards. From directing projects like Así Son to producing, I remain committed to telling stories with identity.",
+    "ca": "M'especialitzo en l'ajudantia de direcció, un lloc on conflueixen de manera natural el meu amor per la direcció i la producció, unint el meu vessant creatiu i logístic.\n\nM'encanta el treball en equip, ser al rodatge, mediar entre un departament i un altre, i conèixer gent nova a cada projecte. Aquesta energia de plató és el que m'impulsa a planificar, coordinar i donar vida a cada obra des de dins.\n\nEl meu recorregut abasta peces seleccionades en festivals com el SEFF, Màlaga (MAFIZ) o els Premis Carmen i Asecan. Des de la direcció de projectes com Así Son fins a la producció, continuo apostant per explicar històries amb identitat."
+  },
+  "projects": [
+    {
+      "id": "p-amapolas-entre-ladrillo-y-asfalto",
+      "slug": "amapolas-entre-ladrillo-y-asfalto",
+      "category": "direccion",
+      "title": "Amapolas entre Ladrillo y Asfalto",
+      "year": 2025,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Daen Sánchez",
+      "production_company": "",
+      "synopsis": {
+        "es": "Marc decide cumplir el último deseo de su abuela fallecida: robar su cadáver del cementerio y enterrarlo en el terreno rural donde ella quería descansar.",
+        "en": "Marc decides to fulfill his late grandmother's last wish: to steal her body from the cemetery and bury it in the rural land where she wanted to rest.",
+        "ca": "Marc decideix complir l'últim desig de la seva àvia morta: robar el seu cadàver del cementiri i enterrar-lo al terreny rural on ella volia descansar."
+      },
+      "cover": "",
+      "poster": "",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "wide",
+      "role": "ayudante-direccion"
+    },
+    {
+      "id": "p-dante",
+      "slug": "dante",
+      "category": "direccion",
+      "title": "Dante",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "José Luis Pineda y Andoni Fernández",
+      "production_company": "Artista: Deezy",
+      "synopsis": {
+        "es": "«Dante» es el single de presentación del artista musical DEEZYNTD, lanzado en plataformas de streaming a finales de 2024.",
+        "en": "\"Dante\" is the debut single by musical artist DEEZYNTD, released on streaming platforms in late 2024.",
+        "ca": "«Dante» és el single de presentació de l'artista musical DEEZYNTD, llançat a plataformes d'streaming a finals de 2024."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788132454/dante.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788131601/IMG_3029.webp",
+      "preview_url": "https://www.youtube.com/watch?v=IxdiHcIc92U",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788132454/dante.webp"],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "hero",
+      "role": "ayudante-direccion"
+    },
+    {
+      "id": "p-modest",
+      "slug": "modest",
+      "category": "direccion",
+      "title": "Modest",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "José Luis Pineda y Andoni Fernández",
+      "production_company": "Artista: Deezy",
+      "synopsis": {
+        "es": "«Modest» es un sencillo colaborativo de género rap/hip-hop del artista musical DEEZYNTD junto al productor B Lion, caracterizado por su sonido underground y una cuidada producción visual plasmada en su formato de videoclip.",
+        "en": "\"Modest\" is a collaborative rap/hip-hop single by musical artist DEEZYNTD alongside producer B Lion, defined by its underground sound and a carefully crafted visual production captured in music video format.",
+        "ca": "«Modest» és un senzill col·laboratiu de gènere rap/hip-hop de l'artista musical DEEZYNTD juntament amb el productor B Lion, caracteritzat pel seu so underground i una acurada producció visual plasmada en el seu format de videoclip."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788135688/PHOTO-2024-04-26-15-02-26.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788135695/PHOTO-2024-04-26-15-03-17.webp",
+      "preview_url": "https://www.youtube.com/watch?v=E0WvNvUIwk4",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788135683/PHOTO-2024-04-26-15-02-24.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788135691/PHOTO-2024-04-26-15-02-27.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788135685/PHOTO-2024-04-26-15-02-26_4.webp"],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "medium",
+      "role": "ayudante-direccion"
+    },
+    {
+      "id": "p-el-rey-de-enoc",
+      "slug": "el-rey-de-enoc",
+      "category": "direccion",
+      "title": "El Rey de Enoc",
+      "year": 2024,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "José Luis Pineda",
+      "production_company": "",
+      "synopsis": {
+        "es": "La historia plantea un enfrentamiento oscuro y tenso entre una madre y un joven cuando este último se percata de que su hermano no ha regresado a casa. La obra explora reflexiones morales sobre la culpa, el peso de los errores familiares y los límites de la fe. Seleccionado en el Festival de Málaga (MAFIZ), Festival de Sevilla (SEFF, Panorama Andaluz), Caronte (Festival de Cine de Terror), Festival de Cine La Vieja Encina, Foundry Theater «Open Screen Nights», FantaElx (Festival de Cine Fantástico de Elche) o Zinema sin Cinema, entre otros.",
+        "en": "The story sets up a dark, tense confrontation between a mother and a young man when he realizes his brother hasn't come home. The film explores moral questions about guilt, the weight of family mistakes and the limits of faith. Selected at the Málaga Film Festival (MAFIZ), Seville Film Festival (SEFF, Panorama Andaluz), Caronte (Horror Film Festival), La Vieja Encina Film Festival, Foundry Theater \"Open Screen Nights\", FantaElx (Elche Fantastic Film Festival) and Zinema sin Cinema, among others.",
+        "ca": "La història planteja un enfrontament fosc i tens entre una mare i un jove quan aquest s'adona que el seu germà no ha tornat a casa. L'obra explora reflexions morals sobre la culpa, el pes dels errors familiars i els límits de la fe. Seleccionada al Festival de Màlaga (MAFIZ), Festival de Sevilla (SEFF, Panorama Andalús), Caronte (Festival de Cinema de Terror), Festival de Cinema La Vieja Encina, Foundry Theater «Open Screen Nights», FantaElx (Festival de Cinema Fantàstic d'Elx) o Zinema sin Cinema, entre d'altres."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788133905/enoc.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788133273/poster.webp",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788133105/enoc.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788133709/enoc3.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788133711/enoc2.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788133714/enoc4.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788133701/IMG_3025.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788133703/IMG_3026.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788134252/IMG_4228-scaled.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "medium",
+      "role": "ayudante-direccion",
+      "home_order": 3
+    },
+    {
+      "id": "p-malleus-maleficarum",
+      "slug": "malleus-maleficarum",
+      "category": "direccion",
+      "title": "Malleus Maleficarum",
+      "year": 2023,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "Lucía Lara",
+      "production_company": "Artista: Clara Incendio",
+      "synopsis": {
+        "es": "«Malleus Maleficarum» es una pieza conceptual de neofolk, rock y música de raíz de la artista sevillana Clara Incendio, que funciona como el tema homónimo y eje central de su proyecto discográfico debut. La composición se construye como un grito reivindicativo y espiritual de libertad creativa para las mujeres, utilizando el título del célebre manual inquisitorial para resignificar la persecución histórica a través del arte y el fuego.",
+        "en": "\"Malleus Maleficarum\" is a conceptual neofolk, rock and roots-music piece by Seville artist Clara Incendio, serving as the title track and centerpiece of her debut album. The composition builds into a spiritual, defiant cry for women's creative freedom, reclaiming the title of the infamous inquisitorial manual to reframe historical persecution through art and fire.",
+        "ca": "«Malleus Maleficarum» és una peça conceptual de neofolk, rock i música d'arrel de l'artista sevillana Clara Incendio, que funciona com el tema homònim i eix central del seu projecte discogràfic debut. La composició es construeix com un crit reivindicatiu i espiritual de llibertat creativa per a les dones, utilitzant el títol del cèlebre manual inquisitorial per resignificar la persecució històrica a través de l'art i el foc."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788134534/2023-05_Clara_Incendio-61.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788135190/poster-malleus.webp",
+      "preview_url": "https://www.youtube.com/watch?v=HGTJgoHYfvs",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788135290/malleus.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788134534/2023-05_Clara_Incendio-61.webp"],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "hero",
+      "role": "ayudante-direccion"
+    },
+    {
+      "id": "p-presa",
+      "slug": "presa",
+      "category": "direccion",
+      "title": "Presa",
+      "year": 2023,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Fernanda del Miro",
+      "production_company": "",
+      "synopsis": {
+        "es": "«Presa» es un cortometraje dramático y de suspense psicológico. La obra destaca por su cuidada tensión narrativa y una atmósfera asfixiante, explorando el aislamiento, el miedo y las dinámicas de poder a través de un enfoque visualmente crudo y una profunda carga simbólica en la interpretación de sus personajes.",
+        "en": "\"Presa\" is a dramatic psychological-suspense short film. It stands out for its carefully built narrative tension and suffocating atmosphere, exploring isolation, fear and power dynamics through a visually raw approach and a deep symbolic weight in its characters' performances.",
+        "ca": "«Presa» és un curtmetratge dramàtic i de suspens psicològic. L'obra destaca per la seva acurada tensió narrativa i una atmosfera asfixiant, explorant l'aïllament, la por i les dinàmiques de poder a través d'un enfocament visualment cru i una profunda càrrega simbòlica en la interpretació dels seus personatges."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788135881/PHOTO-2023-11-30-18-14-07.jpg.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788135860/PHOTO-2023-12-14-22-42-52_1.jpg.webp",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788135867/PHOTO-2023-12-14-22-42-51_1.jpg.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788135863/0cb22fd2-e9bf-4665-b4e8-a3fd6d8cfe70_2.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788135857/c8c4fe9e-350d-4135-8b92-f2baa5f3815d_1.jpg.webp"],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "medium",
+      "role": "ayudante-direccion"
+    },
+    {
+      "id": "p-a-la-vejez-viruela",
+      "slug": "a-la-vejez-viruela",
+      "category": "direccion",
+      "title": "A la Vejez Viruela",
+      "year": 2024,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Pol Aguilera",
+      "production_company": "",
+      "synopsis": {
+        "es": "Dos abuelos gruñones de 80 años, Quique y Alfonso, entran en un club de intercambio de parejas para buscar a un amigo.",
+        "en": "Two grumpy 80-year-old grandfathers, Quique and Alfonso, walk into a swingers' club looking for a friend.",
+        "ca": "Dos avis rondinaires de 80 anys, Quique i Alfonso, entren en un club d'intercanvi de parelles a la recerca d'un amic."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788130307/DSC01624.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788130126/DSC00578.webp",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "wide",
+      "role": "segunda-ayudante-direccion"
+    },
+    {
+      "id": "p-magia-blancaonegra-negraoblanca",
+      "slug": "magia-blancaonegra-negraoblanca",
+      "category": "direccion",
+      "title": "Magia Blancaonegra Negraoblanca",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "Elisa Manzano",
+      "production_company": "Artista: Andrea Santalusía",
+      "synopsis": {
+        "es": "«Magia Blancaonegra Negraoblanca» es una pieza vanguardista y experimental de la artista sevillana Andrea Santalusía, que forma parte de su trilogía de lanzamientos estelares en el EP ALNITAK. La canción difumina por completo las fronteras entre el rap, el flamenco de raíz, la electrónica underground y el jazz, utilizando una lírica cargada de simbolismo espiritual, orgullo andaluz y misticismo para rechazar los términos medios (los «grises») a través de una interpretación vocal cruda, magnética y teatral.",
+        "en": "\"Magia Blancaonegra Negraoblanca\" is an avant-garde, experimental piece by Seville artist Andrea Santalusía, part of her trilogy of stellar releases on the EP ALNITAK. The song completely blurs the boundaries between rap, roots flamenco, underground electronic music and jazz, using lyrics loaded with spiritual symbolism, Andalusian pride and mysticism to reject the middle ground (the \"greys\") through a raw, magnetic and theatrical vocal performance.",
+        "ca": "«Magia Blancaonegra Negraoblanca» és una peça avantguardista i experimental de l'artista sevillana Andrea Santalusía, que forma part de la seva trilogia de llançaments estel·lars a l'EP ALNITAK. La cançó difumina completament les fronteres entre el rap, el flamenc d'arrel, l'electrònica underground i el jazz, utilitzant una lírica carregada de simbolisme espiritual, orgull andalús i misticisme per rebutjar els termes mitjans (els «grisos») a través d'una interpretació vocal crua, magnètica i teatral."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788136517/magia3.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788136499/poster-magia.webp",
+      "preview_url": "https://youtu.be/i3uqIggxTUk",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788136521/magia2.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788136299/IMG_9190.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788136324/IMG_9216.webp"],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "hero",
+      "role": "auxiliar-direccion"
+    },
+    {
+      "id": "p-nuestra-nina",
+      "slug": "nuestra-nina",
+      "category": "direccion",
+      "title": "Nuestra Niña",
+      "year": 2024,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Rebeca Márquez",
+      "production_company": "",
+      "synopsis": {
+        "es": "Una preadolescente se adentra en el bosque con el propósito de huir de unos padres extremadamente sobreprotectores; una vez experimentando su ansiada libertad, tendrá que descubrir si tiene las herramientas necesarias para sobrevivir por sí misma. Blanca es una chica colmada de inocencia, vive en su mundo, de hecho se podría decir que se aventura a crearlo. No obstante, separar la fantasía de la realidad, la ilusión de la necesidad, será el próximo reto al que se enfrente nuestra protagonista. Seleccionado por el Festival de Sevilla (SEFF, Panorama Andaluz), Akida Film Festival (donde ganó el premio del público), VIII Certamen de Cortometrajes de la Provincia de Sevilla, Rustenburg Film Festival, Semana por la Soberanía Audiovisual de Argentina y Festival Les Pyrénées Envolées, ganando en este último el premio del público.",
+        "en": "A preteen girl runs into the forest to escape from extremely overprotective parents; once she experiences her longed-for freedom, she'll have to discover whether she has what it takes to survive on her own. Blanca is a girl brimming with innocence, living in her own world — one could say she dares to create it. Yet separating fantasy from reality, illusion from necessity, will be the next challenge our protagonist faces. Selected at the Seville Film Festival (SEFF, Panorama Andaluz), Akida Film Festival (where it won the Audience Award), 8th Short Film Contest of the Province of Seville, Rustenburg Film Festival, Argentina's Audiovisual Sovereignty Week and Festival Les Pyrénées Envolées, where it also won the Audience Award.",
+        "ca": "Una preadolescent s'endinsa al bosc amb el propòsit de fugir d'uns pares extremadament sobreprotectors; un cop experimentant la seva anhelada llibertat, haurà de descobrir si té les eines necessàries per sobreviure per si mateixa. Blanca és una noia plena d'innocència, viu en el seu món, de fet es podria dir que s'aventura a crear-lo. Tanmateix, separar la fantasia de la realitat, la il·lusió de la necessitat, serà el proper repte al qual s'enfronti la nostra protagonista. Seleccionada pel Festival de Sevilla (SEFF, Panorama Andalús), Akida Film Festival (on va guanyar el premi del públic), VIII Certamen de Curtmetratges de la Província de Sevilla, Rustenburg Film Festival, Setmana per la Sobirania Audiovisual d'Argentina i Festival Les Pyrénées Envolées, guanyant en aquest últim el premi del públic."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788138464/074E78E5-BE41-408C-AF4C-F3C09829C2B8_L0_001-27_2_2023_12_26_27.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788138241/Cartel_base_nuestra_nin%CC%83a_final.webp",
+      "preview_url": "https://www.youtube.com/watch?v=HVHGL_8zZis",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788138303/IMG_0898.JPG.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138309/IMG_0897.JPG.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138553/Copia_de_Fotograma_3_1.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138558/Copia_de_Fotograma_4_1.jpg.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788138438/MVI_3372_-_frame_at_0m2s_1.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138469/9E1CF11E-5584-45C6-B6B8-14C65FA6234C_L0_001-27_2_2023_14_58_28.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138474/8E0A9008.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138478/a6057b46-08ac-47be-9e4f-a07f278f60e9.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788138483/6021c568-a87f-4d75-a5c2-d16b3e1b8905.jpg.webp"],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "medium",
+      "role": "directora"
+    },
+    {
+      "id": "p-asi-son",
+      "slug": "asi-son",
+      "category": "direccion",
+      "title": "Así Son",
+      "year": 2026,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Rebeca Márquez",
+      "production_company": "",
+      "synopsis": {
+        "es": "Una adolescente intenta mantener su lugar en un grupo de amigos cuando la llegada de una chica nueva empieza a desestabilizar la dinámica, obligándola a confrontar sus lealtades, su identidad y el machismo cotidiano que hasta ahora no se había cuestionado.",
+        "en": "A teenage girl tries to hold her place within a group of friends when the arrival of a new girl starts to destabilize the group's dynamic, forcing her to confront her loyalties, her identity and the everyday sexism she had never questioned before.",
+        "ca": "Una adolescent intenta mantenir el seu lloc en un grup d'amigues quan l'arribada d'una noia nova comença a desestabilitzar la dinàmica, obligant-la a confrontar les seves lleialtats, la seva identitat i el masclisme quotidià que fins ara no s'havia qüestionat."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788137811/CONFORMADO_01_07_49_08.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788137352/CARTEL_ASI_SON.webp",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788137657/CONFORMADO_01_05_32_00.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788137346/CONFORMADO_01_11_02_05.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788137342/CONFORMADO_01_08_30_00.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788137283/CONFORMADO_01_04_17_13.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788137276/ASISON_Escac_dia3--67.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788137272/ASISON_Escac_dia3--56.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788137136/ASISON_Escac_dia3--9.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "medium",
+      "role": "directora",
+      "home_order": 2
+    },
+    {
+      "id": "p-exiliado-en-tijuana",
+      "slug": "exiliado-en-tijuana",
+      "category": "produccion",
+      "title": "Exiliado en Tijuana",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "Lucía Lara",
+      "production_company": "Artista: Magnetismo Sonoro Excéntrico",
+      "synopsis": {
+        "es": "«Exiliado en Tijuana» es una canción irreverente de la banda sevillana Magnetismo Sonoro Excéntrico, que sirve como el tema de apertura de su álbum homónimo debut. Conducida por el músico Mario García, la pieza fusiona una propuesta de blues-rock con texturas de noise y experimentación underground, destacando por una lírica cargada de humor negro, actitud descarada y un sonido crudo diseñado para no tomarse a sí mismo demasiado en serio.",
+        "en": "\"Exiliado en Tijuana\" is an irreverent song by Seville band Magnetismo Sonoro Excéntrico, serving as the opening track of their self-titled debut album. Led by musician Mario García, the track blends blues-rock with noise textures and underground experimentation, standing out for lyrics full of dark humor, brazen attitude and a raw sound designed not to take itself too seriously.",
+        "ca": "«Exiliado en Tijuana» és una cançó irreverent de la banda sevillana Magnetismo Sonoro Excéntrico, que serveix com el tema d'obertura del seu àlbum homònim debut. Conduïda pel músic Mario García, la peça fusiona una proposta de blues-rock amb textures de noise i experimentació underground, destacant per una lírica carregada d'humor negre, actitud descarada i un so cru dissenyat per no prendre's a si mateix massa seriosament."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788142328/tijuana.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788142328/tijuana.webp",
+      "preview_url": "https://www.youtube.com/watch?v=kVnaNdXBtvs",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788142314/_DSC4521.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142321/_DSC4326.webp"],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "medium",
+      "role": "directora-produccion"
+    },
+    {
+      "id": "p-glory-hole",
+      "slug": "glory-hole",
+      "category": "produccion",
+      "title": "Glory Hole",
+      "year": 2025,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Andoni Fernandez",
+      "production_company": "Producido por: ESCAC Films",
+      "synopsis": {
+        "es": "Borja encuentra un glory hole en el baño de una discoteca. Duda, pero finalmente decide probarlo. Al cabo de un rato, se da cuenta de que no puede sacar el pene del agujero. En ese momento, Borja tendrá que enfrentarse a su destino en el lugar más inesperado, un destino que parece ya escrito. Con más de 70 selecciones, entre las que destacan el premio Méliès en Fantaspoa y otros 16 premios, además de su selección en el Festival Filmquest.",
+        "en": "Borja finds a glory hole in a nightclub bathroom. He hesitates, but finally decides to try it. After a while, he realizes he can't pull his penis out of the hole. At that moment, Borja will have to face his fate in the most unexpected place — a fate that seems already written. With over 70 selections, including the Méliès Award at Fantaspoa and 16 other awards, plus a selection at Filmquest Film Festival.",
+        "ca": "En Borja troba un glory hole al lavabo d'una discoteca. Dubta, però finalment decideix provar-ho. Al cap d'una estona, s'adona que no pot treure el penis del forat. En aquell moment, en Borja haurà d'enfrontar-se al seu destí en el lloc més inesperat, un destí que sembla ja escrit. Amb més de 70 seleccions, entre les quals destaquen el premi Méliès a Fantaspoa i altres 16 premis, a més de la seva selecció al Festival Filmquest."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788140563/gloryhole4.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788140568/cartel.webp",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788140573/gloryhole2.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140578/gloryhole3.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140563/gloryhole4.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788140583/gloryhole1.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "medium",
+      "role": "directora-produccion",
+      "home_order": 6
+    },
+    {
+      "id": "p-graveyard-of-consciousness",
+      "slug": "graveyard-of-consciousness",
+      "category": "produccion",
+      "title": "Graveyard of Consciousness",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "Lucía Lara",
+      "production_company": "Artista: Lost in Existence",
+      "synopsis": {
+        "es": "«Graveyard of Consciousness» es un potente sencillo de metalcore y metal moderno lanzado por la banda sevillana Lost in Existence. Publicada bajo el sello discográfico Kvlt und Kaos Productions, la canción destaca por su atmósfera oscura, riffs contundentes y una lírica profunda e introspectiva que explora temáticas existenciales, siendo una de las piezas clave que ayudaron a consolidar el sonido agresivo y enérgico de la formación en la escena underground.",
+        "en": "\"Graveyard of Consciousness\" is a powerful metalcore and modern metal single released by Seville band Lost in Existence. Released under the label Kvlt und Kaos Productions, the song stands out for its dark atmosphere, forceful riffs and deep, introspective lyrics exploring existential themes, becoming one of the key tracks that helped establish the band's aggressive, energetic sound in the underground scene.",
+        "ca": "«Graveyard of Consciousness» és un potent senzill de metalcore i metal modern llançat per la banda sevillana Lost in Existence. Publicada sota el segell discogràfic Kvlt und Kaos Productions, la cançó destaca per la seva atmosfera fosca, riffs contundents i una lírica profunda i introspectiva que explora temàtiques existencials, sent una de les peces clau que van ajudar a consolidar el so agressiu i enèrgic de la formació a l'escena underground."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788140841/PHOTO-2024-05-01-16-02-10_1.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788141125/poster222.webp",
+      "preview_url": "https://www.youtube.com/watch?v=7nCk9uv-iXc",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788140825/IMG_0599.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140835/PHOTO-2024-05-01-16-02-11_1.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140841/PHOTO-2024-05-01-16-02-10_1.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788140846/IMG_0546.webp"],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "hero",
+      "role": "directora-produccion"
+    },
+    {
+      "id": "p-martirio",
+      "slug": "martirio",
+      "category": "produccion",
+      "title": "Martirio",
+      "year": 2024,
+      "type": {
+        "es": "Videoclip",
+        "en": "Music Video",
+        "ca": "Videoclip"
+      },
+      "director": "Lucía Lara",
+      "production_company": "Artista: Clara Incendio",
+      "synopsis": {
+        "es": "«Martirio» es una sobrecogedora pieza de neofolk y canción de autor experimental de la artista sevillana Clara Incendio, que funciona como el segundo corte y uno de los pilares emocionales de su álbum debut, Malleus Maleficarum. La canción teje una atmósfera íntima y oscura a través de una instrumentación acústica y una interpretación vocal desgarradora, sumergiendo al oyente en un viaje lírico sobre el dolor, la culpa colectiva y el peso de la historia, consolidando el sonido conceptual y teatral que define todo el proyecto.",
+        "en": "\"Martirio\" is a haunting neofolk and experimental singer-songwriter piece by Seville artist Clara Incendio, serving as the second track and one of the emotional pillars of her debut album, Malleus Maleficarum. The song weaves an intimate, dark atmosphere through acoustic instrumentation and a heart-wrenching vocal performance, immersing the listener in a lyrical journey about pain, collective guilt and the weight of history, consolidating the conceptual, theatrical sound that defines the whole project.",
+        "ca": "«Martirio» és una colpidora peça de neofolk i cançó d'autor experimental de l'artista sevillana Clara Incendio, que funciona com el segon tall i un dels pilars emocionals del seu àlbum debut, Malleus Maleficarum. La cançó teixeix una atmosfera íntima i fosca a través d'una instrumentació acústica i una interpretació vocal desgarradora, submergint l'oient en un viatge líric sobre el dolor, la culpa col·lectiva i el pes de la història, consolidant el so conceptual i teatral que defineix tot el projecte."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788141389/poster-martirio.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788141437/IMG_1152.jpg.webp",
+      "preview_url": "https://www.youtube.com/watch?v=wBUgQy61OBQ",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788141426/IMG_0701.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788141442/IMG_1172_1.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788141448/IMG_1797.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788141458/IMG_1827-2.jpg.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788141431/IMG_0991.jpg.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788142079/IMG_2111.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142089/IMG_1435.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142101/IMG_1567.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142112/IMG_0743.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142106/IMG_0861.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142118/IMG_0670.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142123/IMG_0633.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142129/IMG_0629.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "medium",
+      "role": "directora-produccion",
+      "home_order": 5
+    },
+    {
+      "id": "p-entre-la-playa-y-el-cielo",
+      "slug": "entre-la-playa-y-el-cielo",
+      "category": "produccion",
+      "title": "Entre la Playa y el Cielo",
+      "year": 2025,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Marta D'Ocón",
+      "production_company": "",
+      "synopsis": {
+        "es": "Dos chicas toman la drástica (y delirante) decisión de robar las cenizas de su abuela fallecida. Su objetivo es escapar de los formalismos tradicionales y emprender un viaje hacia la costa para esparcir los restos en la playa en la que ella se crió y pasó los momentos más felices de su vida.",
+        "en": "Two girls make the drastic (and delirious) decision to steal their late grandmother's ashes. Their goal is to escape traditional formalities and set off on a journey to the coast to scatter her remains on the beach where she grew up and spent the happiest moments of her life.",
+        "ca": "Dues noies prenen la dràstica (i delirant) decisió de robar les cendres de la seva àvia morta. El seu objectiu és fugir dels formalismes tradicionals i emprendre un viatge cap a la costa per escampar les restes a la platja on ella es va criar i va passar els moments més feliços de la seva vida."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788142885/entre-la-playa-y-el-cielo-4.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788142879/poster-entre-la-playa-y-el-cielo.webp",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788142874/entre-la-playa-y-el-cielo-5.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142868/entre-la-playa-y-el-cielo-2.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142862/entre-la-playa-y-el-cielo-3.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788142857/entre-la-playa-y-el-cielo-1.webp"],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "wide",
+      "role": "jefa-produccion"
+    },
+    {
+      "id": "p-alli-donde-nada",
+      "slug": "alli-donde-nada",
+      "category": "produccion",
+      "title": "Allí Donde Nada",
+      "year": 2027,
+      "type": {
+        "es": "Largometraje",
+        "en": "Feature Film",
+        "ca": "Llargmetratge"
+      },
+      "director": "Adrià Sánchez",
+      "production_company": "Producida por: Pisco Sour Productions",
+      "synopsis": {
+        "es": "Una noche cambia para siempre el destino de dos familias cuando una joven regresa a su hogar en estado de shock. Lo que parece un caso evidente de agresión se transforma en un complejo mosaico humano narrado desde tres puntos de vista implacables: la desesperación de una madre por proteger a su hija, el dilema moral de un padre ante la acusación de su hijo, y la cruda realidad de los dos jóvenes implicados. Un asfixiante thriller dramático rodado en Vilafranca del Penedès que explora los límites de la culpa, la verdad y la justicia familiar.",
+        "en": "One night changes the fate of two families forever when a young woman returns home in a state of shock. What looks like a clear case of assault turns into a complex human mosaic told from three unrelenting points of view: a mother's desperation to protect her daughter, a father's moral dilemma when his son is accused, and the raw reality faced by the two young people involved. A suffocating dramatic thriller shot in Vilafranca del Penedès that explores the limits of guilt, truth and family justice.",
+        "ca": "Una nit canvia per sempre el destí de dues famílies quan una jove torna a casa en estat de xoc. El que sembla un cas evident d'agressió es transforma en un complex mosaic humà narrat des de tres punts de vista implacables: la desesperació d'una mare per protegir la seva filla, el dilema moral d'un pare davant l'acusació del seu fill, i la crua realitat dels dos joves implicats. Un asfixiant thriller dramàtic rodat a Vilafranca del Penedès que explora els límits de la culpa, la veritat i la justícia familiar."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788143835/GN3A9667.webp",
+      "poster": "",
+      "preview_url": "",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788143829/GN3A9654.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143835/GN3A9667.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143911/GN3A9929.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788144331/GN3A9594.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788144338/GN3A9865.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788144345/GN3A9867.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143822/ADN_-_Adria%CC%80_Sa%CC%80nchez_205_G.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143841/GN3A9186.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143853/GN3A9241.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143860/GN3A9536.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788143865/GN3A9357.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "hero",
+      "role": "jefa-produccion",
+      "home_order": 4
+    },
+    {
+      "id": "p-oromeo",
+      "slug": "oromeo",
+      "category": "produccion",
+      "title": "O'Romeo",
+      "year": 2026,
+      "type": {
+        "es": "Largometraje",
+        "en": "Feature Film",
+        "ca": "Llargmetratge"
+      },
+      "director": "Vishal Bhardwaj",
+      "production_company": "Producida por: Nadiadwala Grandson Entertainment",
+      "synopsis": {
+        "es": "Ustara es un implacable asesino a sueldo que opera en el submundo criminal del Mumbai de la posindependencia. Su vida cambia por completo cuando conoce a Asha, una viuda consumida por el dolor que busca venganza por la muerte de su esposo. Asha le pide a Hussein que le enseñe a disparar, y en el proceso, él se enamora perdidamente de ella de forma no correspondida. Este romance imposible desata una brutal e inevitable guerra de bandas que pondrá a prueba su lealtad y su destino.",
+        "en": "Ustara is a ruthless hitman operating in the criminal underworld of post-independence Mumbai. His life changes completely when he meets Asha, a widow consumed by grief who seeks revenge for her husband's death. Asha asks Hussein to teach her how to shoot, and in the process, he falls hopelessly and unrequitedly in love with her. This impossible romance unleashes a brutal, inevitable gang war that will test his loyalty and his fate.",
+        "ca": "Ustara és un implacable assassí a sou que opera al submón criminal del Mumbai de la postindependència. La seva vida canvia completament quan coneix Asha, una vídua consumida pel dolor que busca venjança per la mort del seu espòs. Asha li demana a Hussein que li ensenyi a disparar, i en el procés, ell s'enamora perdudament d'ella de manera no correspost. Aquest romanç impossible desencadena una brutal i inevitable guerra de bandes que posarà a prova la seva lleialtat i el seu destí."
+      },
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788139527/romeo3.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788138872/ROMEO.webp",
+      "preview_url": "https://www.youtube.com/watch?v=2M4hKmuBzUU",
+      "stills": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788139551/romeo7.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788139546/romeo6.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788139523/romeo1.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788139532/romeo4.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788139542/romeo5.webp"," https://res.cloudinary.com/zr7n3blx/image/upload/v1788139537/romeo2.webp"],
+      "bts": ["https://res.cloudinary.com/zr7n3blx/image/upload/v1788140001/romeo9.jpg","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140019/romeo8.webp","https://res.cloudinary.com/zr7n3blx/image/upload/v1788140139/0b26e275-fa10-4154-83f9-6461c576d9a3.webp"],
+      "external_link": "",
+      "home_featured": true,
+      "home_size": "medium",
+      "role": "coordinadora-transporte",
+      "home_order": 1
+    },
+    {
+      "id": "p-el-nazareno",
+      "slug": "el-nazareno",
+      "category": "produccion",
+      "title": "El Nazareno",
+      "year": 2022,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "José Luis Pineda",
+      "production_company": "",
+      "synopsis": {
+        "es": "El suceso más importante de la historia de la religión cristiana acontece en un plano más allá del físico, cuando el propio Dios toca por primera vez al hombre. Este suceso hará que la luz y la sombra se reúnan en un mismo lugar. Disponible en Filmin. Seleccionado, entre otros, en el festival Barciff de Barcelona, en Randfilmfest, en el Festival de Cine Andaluz de Burguillos y en el Festival de Sevilla (SEFF, Panorama Andaluz), además del festival Caostica, donde ganó la mención «Bizarro».",
+        "en": "The most important event in the history of the Christian religion takes place on a plane beyond the physical, when God himself touches man for the first time. This event brings light and shadow together in the same place. Available on Filmin. Selected, among others, at the Barciff festival in Barcelona, Randfilmfest, the Andalusian Film Festival of Burguillos and the Seville Film Festival (SEFF, Panorama Andaluz), as well as the Caostica festival, where it won the \"Bizarro\" mention.",
+        "ca": "El succés més important de la història de la religió cristiana esdevé en un pla més enllà del físic, quan el mateix Déu toca per primer cop l'home. Aquest succés farà que la llum i l'ombra es reuneixin en un mateix lloc. Disponible a Filmin. Seleccionat, entre d'altres, al festival Barciff de Barcelona, a Randfilmfest, al Festival de Cinema Andalús de Burguillos i al Festival de Sevilla (SEFF, Panorama Andalús), a més del festival Caostica, on va guanyar la menció «Bizarro»."
+      },
+      "cover": "",
+      "poster": "",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "wide",
+      "role": "auxiliar-produccion"
+    },
+    {
+      "id": "p-la-nina-tatuada",
+      "slug": "la-nina-tatuada",
+      "category": "produccion",
+      "title": "La Niña Tatuada",
+      "year": 2024,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Elisa Lanzas",
+      "production_company": "",
+      "synopsis": {
+        "es": "Irene sufre el acoso callejero de un desconocido. Asustada, acude a su padre, quien decide montarla en el coche para buscar al acosador. Es entonces cuando Irene se da cuenta de que el comportamiento de su propio padre no es tan diferente al del hombre que la ha perseguido.",
+        "en": "Irene is street-harassed by a stranger. Frightened, she turns to her father, who decides to drive her around to look for the harasser. It's then that Irene realizes her own father's behavior isn't so different from that of the man who followed her.",
+        "ca": "L'Irene pateix l'assetjament al carrer d'un desconegut. Espantada, acut al seu pare, que decideix pujar-la al cotxe per buscar l'assetjador. És llavors quan l'Irene s'adona que el comportament del seu propi pare no és tan diferent del de l'home que l'ha perseguit."
+      },
+      "cover": "",
+      "poster": "",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "hero",
+      "role": "auxiliar-produccion"
+    },
+    {
+      "id": "p-macarena",
+      "slug": "macarena",
+      "category": "produccion",
+      "title": "Macarena",
+      "year": 2025,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Nazaret Beca y Rodrigo Sancho",
+      "production_company": "",
+      "synopsis": {
+        "es": "España, 1936. Como protesta al alzamiento militar contra la II República, un joven obrero anarquista y cofrade se ve inmerso en la quema de una iglesia que custodia su más preciado símbolo de devoción. Seleccionado en más de 50 festivales, entre los que destacan los Premios Carmen y los Premios Asecan.",
+        "en": "Spain, 1936. As a protest against the military uprising against the Second Republic, a young anarchist worker and religious brotherhood member gets caught up in the burning of a church that houses his most treasured symbol of devotion. Selected at over 50 festivals, including the Carmen Awards and the Asecan Awards.",
+        "ca": "Espanya, 1936. Com a protesta contra l'aixecament militar contra la II República, un jove obrer anarquista i confrare es veu immers en la crema d'una església que custodia el seu més preuat símbol de devoció. Seleccionat en més de 50 festivals, entre els quals destaquen els Premis Carmen i els Premis Asecan."
+      },
+      "cover": "",
+      "poster": "",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "medium",
+      "role": "auxiliar-produccion"
+    },
+    {
+      "id": "p-sabbat-andaluz",
+      "slug": "sabbat-andaluz",
+      "category": "produccion",
+      "title": "Sabbat Andaluz",
+      "year": 2023,
+      "type": {
+        "es": "Cortometraje",
+        "en": "Short Film",
+        "ca": "Curtmetratge"
+      },
+      "director": "Elisa Manzano",
+      "production_company": "Producido por: Telegrama Cultural con Financiación de la Junta de Andalucía",
+      "synopsis": {
+        "es": "Seis chicas reciben la llamada de una fuerza que las atrae a emprender un camino para comenzar una ceremonia de lo más sensorial. Entre faldas de lunares y acordes de guitarra, todas ellas se preparan para despedir a una de las suyas. Lejos de ser una mera representación del mito de la brujería, el cortometraje aúna fantasía y crítica de un fenómeno tan ficticio como real. Seleccionado, entre otros, en el Festival de Sevilla (SEFF, Panorama Andaluz), en Cortogijón y en el festival Caostica.",
+        "en": "Six girls answer the call of a force that draws them onto a path to begin a deeply sensory ceremony. Amid polka-dot skirts and guitar chords, they all prepare to bid farewell to one of their own. Far from a mere retelling of the witchcraft myth, the short film blends fantasy with a critique of a phenomenon as fictional as it is real. Selected, among others, at the Seville Film Festival (SEFF, Panorama Andaluz), Cortogijón and the Caostica festival.",
+        "ca": "Sis noies reben la crida d'una força que les atrau a emprendre un camí per començar una cerimònia de allò més sensorial. Entre faldilles de pics i acords de guitarra, totes elles es preparen per acomiadar una de les seves. Lluny de ser una mera representació del mite de la bruixeria, el curtmetratge aúna fantasia i crítica d'un fenomen tan fictici com real. Seleccionat, entre d'altres, al Festival de Sevilla (SEFF, Panorama Andalús), a Cortogijón i al festival Caostica."
+      },
+      "cover": "",
+      "poster": "",
+      "preview_url": "",
+      "stills": [],
+      "bts": [],
+      "external_link": "",
+      "home_featured": false,
+      "home_size": "wide",
+      "role": "auxiliar-produccion"
+    }
+  ]
+}
