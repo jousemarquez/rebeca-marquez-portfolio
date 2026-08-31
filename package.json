@@ -1,37 +1,14 @@
 {
-  "name": "rebeca-marquez-portfolio",
-  "version": "1.0.1",
-  "private": "true",
-  "description": "A clean, beautiful and responsive portfolio template for Developers!",
-  "source": "src/index.html",
+  "name": "v1-repoddfilming",
+  "private": true,
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cobiwave/simplefolio"
-  },
-  "keywords": [],
-  "author": "José Antonio Márquez Flores",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cobiwave/simplefolio/issues"
-  },
-  "homepage": "https://github.com/cobiwave/simplefolio#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.16.4",
-    "parcel": "^2.16.4",
-    "prettier": "^3.9.6"
+    "new-project": "npm --prefix frontend run new-project",
+    "new-project:paste": "node frontend/scripts/new-project.js --paste",
+    "start": "npm --prefix frontend start",
+    "build": "npm --prefix frontend run build",
+    "check:videos": "npm --prefix frontend run check:videos"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
-    "jquery": "^4.0.0",
-    "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.8.1"
-  },
-  "overrides": {
-    "chalk": "4"
+    "mongodb": "^7.6.0"
   }
 }
