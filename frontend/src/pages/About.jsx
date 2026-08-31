@@ -55,26 +55,26 @@ export default function About() {
       {/* ── Página ─────────────────────────────────────────────────────── */}
       <div
         data-testid="about-page"
-        className="bg-white dark:bg-black pt-28 sm:pt-32 md:pt-40 pb-28 transition-colors duration-500 min-h-screen"
+        className="bg-ivory-mist pt-28 sm:pt-32 md:pt-40 pb-28 transition-colors duration-500 min-h-screen"
       >
         <div className="px-6 md:px-12 lg:px-16">
 
           {/* Cabecera */}
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-8 border-b border-black/10 dark:border-white/10 mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-8 border-b border-olive/20 mb-14">
             <div>
-              <p className="text-[11px] tracking-[0.32em] uppercase text-neutral-500 dark:text-neutral-400 mb-5">
+              <p className="font-accent text-[11px] tracking-[0.32em] uppercase text-taupe mb-5">
                 {tr(T.about.title, lang)}
               </p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight font-light leading-[0.9] text-black dark:text-white">
-                {name}
+              <h1 className="text-5xl sm:text-2xl md:text-3xl lg:text-5xl tracking-tight font-light leading-[0.9] text-shadow-grey">
+                {"Rebeca Márquez Rubio"}
               </h1>
-              <p className="mt-4 text-[11px] tracking-[0.26em] uppercase text-neutral-500 dark:text-neutral-400">
+              <p className="font-accent mt-4 text-[11px] tracking-[0.26em] uppercase text-taupe">
                 {tr(title, lang)}
               </p>
             </div>
             {tagline && (
-              <p className="hidden lg:block text-[13px] text-neutral-400 dark:text-neutral-500 italic max-w-[22rem] text-right leading-relaxed">
-                "<TaglineText text={tr(tagline, lang)} />"
+              <p className="hidden lg:block text-[13px] text-taupe italic max-w-[22rem] text-right leading-relaxed">
+                <TaglineText text={tr(tagline, lang)} />
               </p>
             )}
           </div>
@@ -97,22 +97,22 @@ export default function About() {
                       })
                     }
                   >
-                    <div className="relative flex-1 min-h-[360px] md:min-h-0 overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem] bg-neutral-100 dark:bg-neutral-900 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.35)] dark:shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)]">
+                    <div className="relative flex-1 min-h-[360px] md:min-h-0 overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem] bg-olive shadow-[0_24px_60px_-20px_rgba(0,0,0,0.35)]">
                       <img
                         src={photo}
                         alt={name}
                         data-testid="about-photo"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/25">
-                        <span className="bg-white/90 dark:bg-black/75 backdrop-blur-md text-black dark:text-white text-[10px] tracking-[0.26em] uppercase px-5 py-2 rounded-full shadow-lg">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-shadow-grey/25">
+                        <span className="bg-ivory-mist/90 backdrop-blur-md text-shadow-grey text-[10px] tracking-[0.26em] uppercase px-5 py-2 rounded-full shadow-lg">
                           {lang === "es" ? "Ampliar" : "Expand"}
                         </span>
                       </div>
                     </div>
                   </button>
 
-                  <p className="mt-3 shrink-0 text-[10px] tracking-[0.22em] uppercase text-neutral-400 dark:text-neutral-500 text-center">
+                  <p className="mt-3 shrink-0 text-[10px] tracking-[0.22em] uppercase text-taupe text-center">
                     {content.site.about_photo_caption || `${name} · ${tr(title, lang)}`}
                   </p>
                 </>
@@ -123,13 +123,13 @@ export default function About() {
             <div className="md:col-span-6 md:col-start-7">
               {/* Primer párrafo destacado */}
               {paragraphs.length > 0 && (
-                <p className="text-xl md:text-2xl font-light leading-[1.55] text-black dark:text-white mb-8">
+                <p className="text-xl md:text-2xl font-light leading-[1.55] text-shadow-grey mb-8">
                   {paragraphs[0]}
                 </p>
               )}
 
               {paragraphs.length > 1 && (
-                <div className="space-y-5 text-[16px] md:text-[17px] leading-[1.78] text-neutral-600 dark:text-neutral-300">
+                <div className="space-y-5 text-[16px] md:text-[17px] leading-[1.78] text-taupe">
                   {paragraphs.slice(1).map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
@@ -138,7 +138,7 @@ export default function About() {
 
               {/* Tagline móvil */}
               {tagline && (
-                <p className="lg:hidden mt-10 text-[13px] text-neutral-400 dark:text-neutral-500 italic leading-relaxed border-t border-black/10 dark:border-white/10 pt-8">
+                <p className="lg:hidden mt-10 text-[13px] text-taupe italic leading-relaxed border-t border-olive/20 pt-8">
                   "<TaglineText text={tr(tagline, lang)} />"
                 </p>
               )}

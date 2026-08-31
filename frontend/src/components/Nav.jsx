@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useContent, useLang } from "../lib/useContent";
 import { T, tr } from "../lib/i18n";
-import { SITE_NAV_LOGO, SITE_NAV_LOGO_SRCSET } from "../lib/siteAssets";
+import { SITE_NAV_LOGO } from "../lib/siteAssets";
 import { showreelInNav } from "../lib/crop";
 
 export const Nav = () => {
@@ -10,7 +10,7 @@ export const Nav = () => {
   const [lang, setLang] = useLang();
   const location = useLocation();
 
-  const [overHero, setOverHero] = useState(true);
+  const [overHero, setOverHero] = useState(false);
   const [open, setOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -23,21 +23,7 @@ export const Nav = () => {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const hasHero =
-        location.pathname === "/" ||
-        location.pathname === "/showreel" ||
-        location.pathname.startsWith("/project/");
-      setOverHero(hasHero && y < window.innerHeight - 80);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    setOverHero(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -56,27 +42,36 @@ export const Nav = () => {
 
   // El nav es siempre visible. Transparente sobre el hero, glass al hacer scroll.
   const isTransparent = overHero && !open;
-  const isHidden      = isFullscreen;
+  const isHidden = isFullscreen;
 
   const logoUrl = SITE_NAV_LOGO;
 
   const linkClass = ({ isActive }) =>
-    `text-[12px] tracking-[0.22em] uppercase transition-all duration-300 px-3.5 py-2 rounded-full ${
-      isActive
-        ? "text-white bg-white/12"
-        : "text-white/60 hover:text-white hover:bg-white/8"
+    `text-[12px] tracking-[0.22em] uppercase transition-all duration-300 px-3.5 py-2 rounded-full ${isTransparent
+      ? isActive
+        ? "text-ivory-mist bg-ivory-mist/12"
+        : "text-ivory-mist/60 hover:text-ivory-mist hover:bg-ivory-mist/8"
+      : isActive
+        ? "text-shadow-grey bg-carrot-orange"
+        : "text-shadow-grey/60 hover:text-shadow-grey hover:bg-olive/10"
     }`;
+
+  const navFg = isTransparent ? "text-ivory-mist" : "text-shadow-grey";
+  const navFgMuted = isTransparent ? "text-ivory-mist/55" : "text-shadow-grey/55";
+  const navPillBg = isTransparent
+    ? "bg-ivory-mist/8 border border-ivory-mist/10"
+    : "bg-shadow-grey/8 border border-shadow-grey/10";
+  const navHamburgerHover = isTransparent ? "hover:bg-ivory-mist/8" : "hover:bg-shadow-grey/8";
+  const navBarColor = isTransparent ? "bg-ivory-mist" : "bg-shadow-grey";
+  const navPillInactive = isTransparent
+    ? "text-ivory-mist/55 hover:text-ivory-mist"
+    : "text-shadow-grey/55 hover:text-shadow-grey";
 
   return (
     <header
       data-testid="site-nav"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isHidden
-          ? "opacity-0 pointer-events-none"
-          : isTransparent
-            ? "bg-transparent backdrop-blur-none"
-            : "bg-black/60 backdrop-blur-3xl"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isHidden ? "opacity-0 pointer-events-none" : isTransparent ? "bg-transparent" : ""} backdrop-blur-3xl`}
+      style={(!isHidden && !isTransparent) ? { backgroundColor: "var(--ivory-mist)" } : {}}
     >
       <div className="px-4 sm:px-6 md:px-10 lg:px-14 py-4 md:py-5 flex items-center justify-between gap-4">
 
@@ -85,19 +80,18 @@ export const Nav = () => {
           {logoUrl && (
             <img
               src={logoUrl}
-              srcSet={SITE_NAV_LOGO_SRCSET}
-              alt="DD"
-              width={88}
-              height={44}
+              alt="Remarubi"
+              width={300}
+              height={140}
               decoding="async"
-              className="h-8 w-auto md:h-11 transition-all duration-500 invert"
+              className={`h-16 w-auto md:h-24 transition-all duration-500 ${isTransparent ? "invert" : ""}`}
             />
           )}
           <span className="flex flex-col">
-            <span className="font-medium text-sm md:text-[15px] tracking-[0.04em] text-white">
+            <span className={`font-display text-lg md:text-xl leading-none mb-2 ${navFg}`}>
               {content.site.name}
             </span>
-            <span className="text-[9px] md:text-[10px] tracking-[0.32em] uppercase mt-0.5 text-white/55">
+            <span className={`font-accent text-[9px] md:text-[10px] tracking-[0.32em] uppercase mt-0.5 ${navFgMuted}`}>
               {tr(content.site.title, lang)}
             </span>
           </span>
@@ -121,24 +115,36 @@ export const Nav = () => {
           </NavLink>
 
           {/* Idioma — pill compacta */}
-          <div className="ml-3 flex items-center gap-0.5 rounded-full bg-white/8 border border-white/10 p-1">
+          <div className={`ml-3 flex items-center gap-0.5 rounded-full p-1 ${navPillBg}`}>
             <button
               data-testid="lang-es"
               onClick={() => setLang("es")}
-              className={`px-2.5 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase transition-all duration-300 ${
-                lang === "es" ? "bg-white/15 text-white" : "text-white/50 hover:text-white"
-              }`}
+              className={`px-2.5 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase transition-all duration-300 ${lang === "es"
+                ? isTransparent ? "bg-ivory-mist/15 text-ivory-mist" : "bg-carrot-orange text-shadow-grey"
+                : navPillInactive
+                }`}
             >
               ES
             </button>
             <button
               data-testid="lang-en"
               onClick={() => setLang("en")}
-              className={`px-2.5 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase transition-all duration-300 ${
-                lang === "en" ? "bg-white/15 text-white" : "text-white/50 hover:text-white"
-              }`}
+              className={`px-2.5 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase transition-all duration-300 ${lang === "en"
+                ? isTransparent ? "bg-ivory-mist/15 text-ivory-mist" : "bg-carrot-orange text-shadow-grey"
+                : navPillInactive
+                }`}
             >
               EN
+            </button>
+            <button
+              data-testid="lang-ca"
+              onClick={() => setLang("ca")}
+              className={`px-2.5 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase transition-all duration-300 ${lang === "ca"
+                ? isTransparent ? "bg-ivory-mist/15 text-ivory-mist" : "bg-carrot-orange text-shadow-grey"
+                : navPillInactive
+                }`}
+            >
+              CA
             </button>
           </div>
         </nav>
@@ -146,28 +152,27 @@ export const Nav = () => {
         {/* Hamburguesa móvil */}
         <button
           data-testid="nav-mobile-toggle"
-          className="md:hidden flex flex-col gap-[5px] p-2 rounded-full hover:bg-white/8 transition"
+          className={`md:hidden flex flex-col gap-[5px] p-2 rounded-full transition ${navHamburgerHover}`}
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
         >
-          <span className={`block w-5 h-px transition-all bg-white ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-          <span className={`block w-5 h-px transition-all bg-white ${open ? "opacity-0" : "opacity-100"}`} />
-          <span className={`block w-5 h-px transition-all bg-white ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+          <span className={`block w-5 h-px transition-all ${navBarColor} ${open ? "translate-y-[6px] rotate-45" : ""}`} />
+          <span className={`block w-5 h-px transition-all ${navBarColor} ${open ? "opacity-0" : "opacity-100"}`} />
+          <span className={`block w-5 h-px transition-all ${navBarColor} ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
         </button>
       </div>
 
       {/* Menú móvil — glass panel */}
       {open && (
         <div
-          className="md:hidden mx-2 mb-2 rounded-2xl bg-black/70 backdrop-blur-2xl border border-white/10 overflow-hidden"
+          className="md:hidden mx-2 mb-2 rounded-2xl bg-shadow-grey/90 backdrop-blur-2xl border border-ivory-mist/10 overflow-hidden"
           data-testid="nav-mobile-menu"
         >
           <div className="px-5 py-6 flex flex-col gap-1">
             <NavLink
               to="/work"
               className={({ isActive }) =>
-                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${
-                  isActive ? "text-white bg-white/10" : "text-white/65 hover:text-white hover:bg-white/8"
+                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${isActive ? "text-ivory-mist bg-ivory-mist/10" : "text-ivory-mist/65 hover:text-ivory-mist hover:bg-ivory-mist/8"
                 }`
               }
             >
@@ -177,8 +182,7 @@ export const Nav = () => {
               <NavLink
                 to="/showreel"
                 className={({ isActive }) =>
-                  `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${
-                    isActive ? "text-white bg-white/10" : "text-white/65 hover:text-white hover:bg-white/8"
+                  `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${isActive ? "text-ivory-mist bg-ivory-mist/10" : "text-ivory-mist/65 hover:text-ivory-mist hover:bg-ivory-mist/8"
                   }`
                 }
               >
@@ -188,8 +192,7 @@ export const Nav = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${
-                  isActive ? "text-white bg-white/10" : "text-white/65 hover:text-white hover:bg-white/8"
+                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${isActive ? "text-ivory-mist bg-ivory-mist/10" : "text-ivory-mist/65 hover:text-ivory-mist hover:bg-ivory-mist/8"
                 }`
               }
             >
@@ -198,30 +201,34 @@ export const Nav = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${
-                  isActive ? "text-white bg-white/10" : "text-white/65 hover:text-white hover:bg-white/8"
+                `px-4 py-2.5 rounded-xl text-[12px] tracking-[0.24em] uppercase transition-all ${isActive ? "text-ivory-mist bg-ivory-mist/10" : "text-ivory-mist/65 hover:text-ivory-mist hover:bg-ivory-mist/8"
                 }`
               }
             >
               {tr(T.nav.contact, lang)}
             </NavLink>
 
-            <div className="mt-3 pt-4 border-t border-white/8 flex items-center gap-2">
+            <div className="mt-3 pt-4 border-t border-ivory-mist/8 flex items-center gap-2">
               <button
                 onClick={() => setLang("es")}
-                className={`flex-1 py-2 rounded-xl text-[11px] tracking-[0.2em] uppercase transition-all ${
-                  lang === "es" ? "bg-white/12 text-white" : "text-white/45 hover:bg-white/6 hover:text-white"
-                }`}
+                className={`flex-1 py-2 rounded-xl text-[11px] tracking-[0.2em] uppercase transition-all ${lang === "es" ? "bg-carrot-orange text-ivory-mist" : "text-ivory-mist/45 hover:bg-ivory-mist/6 hover:text-ivory-mist"
+                  }`}
               >
                 ES
               </button>
               <button
                 onClick={() => setLang("en")}
-                className={`flex-1 py-2 rounded-xl text-[11px] tracking-[0.2em] uppercase transition-all ${
-                  lang === "en" ? "bg-white/12 text-white" : "text-white/45 hover:bg-white/6 hover:text-white"
-                }`}
+                className={`flex-1 py-2 rounded-xl text-[11px] tracking-[0.2em] uppercase transition-all ${lang === "en" ? "bg-carrot-orange text-ivory-mist" : "text-ivory-mist/45 hover:bg-ivory-mist/6 hover:text-ivory-mist"
+                  }`}
               >
                 EN
+              </button>
+              <button
+                onClick={() => setLang("ca")}
+                className={`flex-1 py-2 rounded-xl text-[11px] tracking-[0.2em] uppercase transition-all ${lang === "ca" ? "bg-carrot-orange text-ivory-mist" : "text-ivory-mist/45 hover:bg-ivory-mist/6 hover:text-ivory-mist"
+                  }`}
+              >
+                CA
               </button>
             </div>
           </div>
