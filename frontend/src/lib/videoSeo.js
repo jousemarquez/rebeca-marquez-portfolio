@@ -73,7 +73,7 @@ export function buildProjectVideoGraph(project, pageUrl, siteName = "Rebeca Már
   const description = (
     project?.synopsis?.es ||
     project?.synopsis?.en ||
-    "Proyecto cinematográfico de Rebeca Márquez Rubio."
+    "Proyecto de Rebeca Márquez Rubio."
   ).slice(0, 500);
   const videoNodeId = video ? `${pageUrl}#video` : undefined;
 
