@@ -68,7 +68,7 @@ function LightboxImage({ src, closing, label, title, index, maxHeight, maxWidth 
       draggable={false}
       decoding="async"
       style={{ maxHeight, maxWidth }}
-      className={`block h-auto w-auto max-h-full max-w-full object-contain rounded-xl md:rounded-2xl shadow-[0_32px_120px_-24px_rgba(0,0,0,0.95)] ring-1 ring-white/10 cursor-default select-none transition-[opacity,transform,filter] duration-300 ${
+      className={`block h-auto w-auto max-h-full max-w-full object-contain rounded-xl md:rounded-2xl shadow-[0_32px_120px_-24px_rgba(0,0,0,0.95)] ring-1 ring-olive/10 cursor-default select-none transition-[opacity,transform,filter] duration-300 ${
         hdReady ? "blur-0" : "blur-[0.4px]"
       } ${
         closing
@@ -171,23 +171,23 @@ export function ImageLightbox({
       onClick={onClose}
     >
       {/* Fondo cinematográfico */}
-      <div className="absolute inset-0 bg-black" aria-hidden="true" />
+      <div className="absolute inset-0 bg-ivory-mist" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.45)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(247,243,227,0.65)_100%)]"
         aria-hidden="true"
       />
 
       {/* Cabecera — clic fuera de la imagen también cierra */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-        <div className="pointer-events-auto flex items-start justify-between px-5 pt-5 pb-16 md:px-10 md:pt-7 bg-gradient-to-b from-black/90 via-black/45 to-transparent">
+        <div className="pointer-events-auto flex items-start justify-between px-5 pt-5 pb-16 md:px-10 md:pt-7 bg-gradient-to-b from-ivory-mist/90 via-ivory-mist/45 to-transparent">
           <div className="min-w-0 pr-6">
             {label && (
-              <p className="text-[9px] tracking-[0.35em] uppercase text-white/35 mb-1.5">
+              <p className="text-[9px] tracking-[0.35em] uppercase text-taupe/70 mb-1.5">
                 {label}
               </p>
             )}
             {title && (
-              <p className="text-sm sm:text-base font-light text-white/85 tracking-tight truncate">
+              <p className="text-sm sm:text-base font-light text-shadow-grey tracking-tight truncate">
                 {title}
               </p>
             )}
@@ -195,7 +195,7 @@ export function ImageLightbox({
 
           <div className="flex items-center gap-3 shrink-0">
             {hasMultiple && (
-              <span className="text-[11px] tracking-[0.25em] text-white/40 tabular-nums">
+              <span className="text-[11px] tracking-[0.25em] text-taupe tabular-nums">
                 {String(index + 1).padStart(2, "0")}
                 <span className="opacity-50">&thinsp;/&thinsp;</span>
                 {String(count).padStart(2, "0")}
@@ -204,7 +204,7 @@ export function ImageLightbox({
             <button
               type="button"
               onClick={onClose}
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-white/20 hover:border-white/25 transition-all duration-200"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-olive/10 backdrop-blur-sm border border-olive/10 text-taupe hover:text-shadow-grey hover:bg-carrot-orange hover:border-carrot-orange/25 transition-all duration-200"
               aria-label={lang === "es" ? "Cerrar" : "Close"}
             >
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -255,7 +255,7 @@ export function ImageLightbox({
               stop(e);
               prevImage();
             }}
-            className="absolute left-1 md:left-5 top-1/2 -translate-y-1/2 z-20 h-12 w-9 md:h-14 md:w-14 flex items-center justify-center md:rounded-full bg-black/25 md:bg-white/8 backdrop-blur-sm md:border md:border-white/10 text-white/50 hover:text-white hover:bg-black/45 md:hover:bg-white/18 md:hover:border-white/30 transition-all duration-200"
+            className="absolute left-1 md:left-5 top-1/2 -translate-y-1/2 z-20 h-12 w-9 md:h-14 md:w-14 flex items-center justify-center md:rounded-full bg-ivory-mist/60 md:bg-olive/8 backdrop-blur-sm md:border md:border-olive/10 text-taupe hover:text-shadow-grey hover:bg-ivory-mist/85 md:hover:bg-carrot-orange/18 md:hover:border-carrot-orange/30 transition-all duration-200"
             aria-label={lang === "es" ? "Anterior" : "Previous"}
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
@@ -266,7 +266,7 @@ export function ImageLightbox({
               stop(e);
               nextImage();
             }}
-            className="absolute right-1 md:right-5 top-1/2 -translate-y-1/2 z-20 h-12 w-9 md:h-14 md:w-14 flex items-center justify-center md:rounded-full bg-black/25 md:bg-white/8 backdrop-blur-sm md:border md:border-white/10 text-white/50 hover:text-white hover:bg-black/45 md:hover:bg-white/18 md:hover:border-white/30 transition-all duration-200"
+            className="absolute right-1 md:right-5 top-1/2 -translate-y-1/2 z-20 h-12 w-9 md:h-14 md:w-14 flex items-center justify-center md:rounded-full bg-ivory-mist/60 md:bg-olive/8 backdrop-blur-sm md:border md:border-olive/10 text-taupe hover:text-shadow-grey hover:bg-ivory-mist/85 md:hover:bg-carrot-orange/18 md:hover:border-carrot-orange/30 transition-all duration-200"
             aria-label={lang === "es" ? "Siguiente" : "Next"}
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
@@ -277,7 +277,7 @@ export function ImageLightbox({
       {/* Tira de miniaturas */}
       {hasMultiple && (
         <div className="absolute bottom-0 left-0 right-0 z-20">
-          <div className="pt-6 pb-5 bg-gradient-to-t from-black/95 via-black/65 to-transparent">
+          <div className="pt-6 pb-5 bg-gradient-to-t from-ivory-mist/95 via-ivory-mist/65 to-transparent">
             <div
               className="flex justify-center gap-1.5 overflow-x-auto px-4 image-lightbox__thumbs"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -294,8 +294,8 @@ export function ImageLightbox({
                   aria-current={i === index ? "true" : undefined}
                   className={`flex-none overflow-hidden rounded-md transition-all duration-200 ${
                     i === index
-                      ? "ring-2 ring-white/80 opacity-100 scale-[1.08]"
-                      : "ring-1 ring-white/10 opacity-35 hover:opacity-65 hover:ring-white/30 hover:scale-[1.04]"
+                      ? "ring-2 ring-carrot-orange/80 opacity-100 scale-[1.08]"
+                      : "ring-1 ring-olive/10 opacity-35 hover:opacity-65 hover:ring-carrot-orange/30 hover:scale-[1.04]"
                   }`}
                   style={{ width: "56px", height: "38px" }}
                 >
