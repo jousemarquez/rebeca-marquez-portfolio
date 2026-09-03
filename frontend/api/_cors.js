@@ -6,7 +6,6 @@
 
 const ALLOWED_ORIGINS = new Set([
   'https://remarubi.com',
-  'https://www.ddanidiaz.com',
 ]);
 
 /**

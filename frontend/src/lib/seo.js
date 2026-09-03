@@ -7,9 +7,9 @@ import { hasProjectWatchPage } from "./videoSeo";
 const BASE_URL = "https://remarubi.com";
 
 export const DEFAULT_META = defaultContent.site?.meta_description || {
-  es: "Rebeca Márquez Rubio, Director de Fotografía entre Sevilla y Barcelona. Formado en la ESCAC. Ficción, documental, publicidad y videoclips.",
-  en: "Rebeca Márquez Rubio, Cinematographer based between Seville and Barcelona. ESCAC-trained. Fiction, documentary, commercials and music videos.",
-  ca: "Rebeca Márquez Rubio, Directora de Fotografia entre Sevilla i Barcelona. Formada a l'ESCAC. Ficció, documental, publicitat i videoclips.",
+  es: "Rebeca Márquez Rubio, Directora y Productora de ficción y videoclips.",
+  en: "Rebeca Márquez Rubio, Director and Producer of fiction and music videos.",
+  ca: "Rebeca Márquez Rubio, Directora y Productora de ficció y videoclips.",
 };
 
 /** Descripción del sitio para Google (prioriza admin → default). */
@@ -33,9 +33,9 @@ export function getPageSeo(pathname, content, lang) {
   const canonical = `${BASE_URL}${pathname === "/" ? "/" : pathname}`;
   const logoAlt =
     lang === "es"
-      ? "Logotipo DD de Rebeca Márquez Rubio, Director de Fotografía"
+      ? "Logotipo de Rebeca Márquez Rubio, Director de Fotografía"
       : lang === "ca"
-        ? "Logotip DD de Rebeca Márquez Rubio, Directora de Fotografia"
+        ? "Logotip de Rebeca Márquez Rubio, Directora de Fotografia"
         : "DD logo — Rebeca Márquez Rubio, Cinematographer";
 
   const withImage = (base, image, imageAlt = logoAlt) => ({
@@ -59,10 +59,10 @@ export function getPageSeo(pathname, content, lang) {
       const description =
         tr(project.synopsis, lang) ||
         (lang === "es"
-          ? `${project.title} — proyecto de ${name}, Director de Fotografía.`
+          ? `${project.title} — proyecto de ${name}, Directora y Productora.`
           : lang === "ca"
-            ? `${project.title} — projecte de ${name}, Directora de Fotografia.`
-            : `${project.title} — project by ${name}, Cinematographer.`);
+            ? `${project.title} — projecte de ${name}, Directora y Productora.`
+            : `${project.title} — project by ${name}.`);
       const hasVideo = hasProjectWatchPage(project);
       return withImage(
         {
@@ -89,10 +89,10 @@ export function getPageSeo(pathname, content, lang) {
         title,
         description:
           lang === "es"
-            ? `Portfolio de ${name}, Director de Fotografía. Ficción, documental, publicidad y videoclips.`
+            ? `Portfolio de ${name}, Directoa y Productora de ficción y videoclips.`
             : lang === "ca"
-              ? `Portfolio de ${name}, Directora de Fotografia. Ficció, documental, publicitat i videoclips.`
-              : `Selected work by ${name}, Cinematographer. Fiction, documentary, commercials and music videos.`,
+              ? `Portfolio de ${name}, Directora y Productora de ficció y videoclips.`
+              : `Selected work by ${name}, Director and Producer of fiction and music videos.`,
         canonical: `${BASE_URL}${pathname}`,
         ogType: "website",
       },
@@ -130,10 +130,10 @@ export function getPageSeo(pathname, content, lang) {
         title: `${tr(T.hero.showreel, lang)} — ${name}`,
         description:
           lang === "es"
-            ? `Showreel de ${name}, Director de Fotografía. Selección de trabajos en ficción, documental, publicidad y videoclips.`
+            ? `Showreel de ${name}, Directora y Productora de ficción y videoclips.`
             : lang === "ca"
-              ? `Showreel de ${name}, Directora de Fotografia. Selecció de treballs en ficció, documental, publicitat i videoclips.`
-              : `Showreel by ${name}, Cinematographer. A selection of fiction, documentary, commercials and music videos.`,
+              ? `Showreel de ${name}, Directora y Productora de ficció y videoclips.`
+              : `Showreel by ${name}, Director and Producer of fiction and music videos.`,
         canonical: `${BASE_URL}/showreel`,
         ogType: "video.other",
       },
