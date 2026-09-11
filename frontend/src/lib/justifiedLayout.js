@@ -48,10 +48,28 @@ export function packJustified(items, containerWidth, opts = {}) {
     height = Math.min(height, cap);
     if (list.length > 1) height = Math.max(minH, Math.min(height, maxH));
     height = Math.min(height, fillH(list));
-    return list.map((item) => ({
+
+    const rawWidths = list.map((item) => height * item.ratio);
+
+    // Cuando la altura queda limitada (minH/maxH), la fila deja de ocupar
+    // el ancho completo del contenedor. Reescalamos los anchos (manteniendo
+    // sus proporciones relativas) para que sigan sumando containerWidth,
+    // como en cualquier layout "justified".
+    let widths = rawWidths;
+    if (list.length > 1) {
+      const gaps = gap * (list.length - 1);
+      const sumRaw = rawWidths.reduce((s, w) => s + w, 0);
+      const target = containerWidth - gaps;
+      if (sumRaw > 0 && target > 0) {
+        const scale = target / sumRaw;
+        widths = rawWidths.map((w) => w * scale);
+      }
+    }
+
+    return list.map((item, i) => ({
       ...item,
       height,
-      width: height * item.ratio,
+      width: widths[i],
     }));
   };
 

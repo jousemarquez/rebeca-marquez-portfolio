@@ -100,7 +100,7 @@ export function HomeStillGrid({ tiles, lang }) {
                 eager={item.index < 4}
                 index={item.index}
                 fill
-                fit="contain"
+                fit="cover"
                 ratio={item.ratio}
                 imageOverride={item.still}
                 previewCrop={item.project.preview_crop ?? item.project.work_crop}
