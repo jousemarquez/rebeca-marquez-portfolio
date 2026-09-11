@@ -30,7 +30,8 @@ export default function Home() {
     <div data-testid="home-page" className="bg-ivory-mist text-shadow-grey min-h-svh">
       <section
         data-testid="home-grid-section"
-        className="px-4 sm:px-6 md:px-12 lg:px-16 pt-[4.6rem] sm:pt-[5rem] md:pt-[5.35rem] pb-6 md:pb-10"
+        className="px-4 sm:px-6 md:px-12 lg:px-16 pb-6 md:pb-10"
+        style={{ paddingTop: "var(--nav-h)" }}
       >
         {reelOnHome && <HomeShowreel url={showreelUrl} />}
 

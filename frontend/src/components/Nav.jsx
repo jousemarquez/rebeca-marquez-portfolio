@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useContent, useLang } from "../lib/useContent";
 import { T, tr } from "../lib/i18n";
 import { SITE_NAV_LOGO } from "../lib/siteAssets";
@@ -14,6 +14,7 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -33,6 +34,20 @@ export const Nav = () => {
   }, []);
 
   useEffect(() => setOpen(false), [location.pathname]);
+
+  // Expone la altura real del nav como variable CSS para que las páginas
+  // puedan desplazar su contenido y no quede oculto tras el nav fijo.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const setVar = () => {
+      document.documentElement.style.setProperty("--nav-h", `${el.offsetHeight}px`);
+    };
+    setVar();
+    const observer = new ResizeObserver(setVar);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isMobile]);
 
   if (location.pathname.startsWith("/admin")) return null;
   if (location.pathname === "/showreel") return null;
@@ -73,7 +88,7 @@ export const Nav = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isHidden ? "opacity-0 pointer-events-none" : isTransparent ? "bg-transparent" : ""} backdrop-blur-3xl`}
       style={(!isHidden && !isTransparent) ? { backgroundColor: "var(--ivory-mist)" } : {}}
     >
-      <div className="px-4 sm:px-6 md:px-10 lg:px-14 py-4 md:py-5 flex items-center justify-between gap-4">
+      <div ref={headerRef} className="px-4 sm:px-6 md:px-10 lg:px-14 py-4 md:py-5 flex items-center justify-between gap-4">
 
         {/* Logo */}
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-2.5 leading-none shrink-0">

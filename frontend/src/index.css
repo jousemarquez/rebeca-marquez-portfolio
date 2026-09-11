@@ -6,6 +6,7 @@
 /* Base styles */
 @layer base {
   :root {
+    --nav-h: 8.5rem;
     --background: var(--ivory-mist);
     --foreground: var(--shadow-grey);
     --card: var(--ivory-mist);

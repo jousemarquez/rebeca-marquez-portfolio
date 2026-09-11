@@ -55,7 +55,8 @@ export default function About() {
       {/* ── Página ─────────────────────────────────────────────────────── */}
       <div
         data-testid="about-page"
-        className="bg-ivory-mist pt-28 sm:pt-32 md:pt-40 pb-28 transition-colors duration-500 min-h-screen"
+        className="bg-ivory-mist pb-28 transition-colors duration-500 min-h-screen"
+        style={{ paddingTop: "var(--nav-h)" }}
       >
         <div className="px-6 md:px-12 lg:px-16">
 

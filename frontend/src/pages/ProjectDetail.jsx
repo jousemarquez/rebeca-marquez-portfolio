@@ -230,7 +230,11 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="pt-40 px-6 md:px-12 lg:px-16 min-h-[60vh] bg-ivory-mist" data-testid="project-not-found">
+      <div
+        className="px-6 md:px-12 lg:px-16 min-h-[60vh] bg-ivory-mist"
+        style={{ paddingTop: "var(--nav-h)" }}
+        data-testid="project-not-found"
+      >
         <p className="text-taupe mb-6">{tr(T.project.notFound, lang)}</p>
         <Link to="/work" className="text-sm border-b border-shadow-grey pb-1 text-shadow-grey">
           {tr(T.project.back, lang)}
@@ -249,7 +253,11 @@ export default function ProjectDetail() {
     <div data-testid="project-detail-page" className="bg-ivory-mist min-h-screen">
 
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section data-hero className="bg-ivory-mist pt-16 md:pt-22 px-1.5 sm:px-4 md:px-8 lg:px-12">
+      <section
+        data-hero
+        className="bg-ivory-mist px-1.5 sm:px-4 md:px-8 lg:px-12"
+        style={{ paddingTop: "var(--nav-h)" }}
+      >
         <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] md:rounded-[2.25rem] bg-olive shadow-[0_32px_80px_-20px_rgba(0,0,0,1)]">
           {heroVideoUrl ? (
             <div className="w-full aspect-video">

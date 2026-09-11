@@ -16,7 +16,11 @@ export default function Contact() {
   ].filter((l) => l.href);
 
   return (
-    <div data-testid="contact-page" className="bg-ivory-mist pt-32 md:pt-40 pb-32 min-h-screen transition-colors duration-500">
+    <div
+      data-testid="contact-page"
+      className="bg-ivory-mist pb-32 min-h-screen transition-colors duration-500"
+      style={{ paddingTop: "var(--nav-h)" }}
+    >
       <div className="px-6 md:px-12 lg:px-16">
         <p className="font-accent text-[11px] tracking-[0.32em] uppercase text-taupe mb-6">
           {tr(T.contact.title, lang)}
