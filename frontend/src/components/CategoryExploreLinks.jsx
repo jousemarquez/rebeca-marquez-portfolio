@@ -23,11 +23,11 @@ export function CategoryExploreLinks({
 
   return (
     <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 ${className}`}
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 ${className}`}
     >
       {categories.map((c) => {
         const preview = projects.find(
-          (p) => p.category === c.id && p.published !== false,
+          (p) => p.category === c.id && p.published !== false && (p.poster || p.cover),
         );
         const raw = preview?.poster || preview?.cover;
         const thumb =
