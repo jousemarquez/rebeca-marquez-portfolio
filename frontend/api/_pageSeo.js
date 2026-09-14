@@ -9,7 +9,7 @@ const { resolveProjectVideo } = require('./_videoSeo');
 
 const BASE_URL = 'https://remarubi.com';
 const OG_LOGO =
-  'https://res.cloudinary.com/dsphxo7mx/image/upload/c_scale,w_700/q_auto,f_jpg/e_negate/c_pad,b_rgb:000000,w_1200,h_630,g_center/v1777731841/DD_BLANCO_l8xqal.png';
+  'https://res.cloudinary.com/zr7n3blx/image/upload/v1789410251/remarubi-share-card.jpg';
 
 const CATEGORIES = [
   { id: 'direccion', es: 'Dirección', en: 'Directing' },
@@ -147,7 +147,7 @@ function getPageMeta(pathname, content) {
       url: `${BASE_URL}/contact`,
       image: getHomeShareImage(content),
       ogType: 'website',
-      imageAlt: 'Logotipo DD de Rebeca Márquez Rubio, Director de Fotografía',
+      imageAlt: 'Logotipo de Rebeca Márquez Rubio, Director de Fotografía',
     };
   }
 

@@ -23,7 +23,7 @@ const {
 } = require('./_videoSeo');
 
 const BASE_URL = 'https://remarubi.com';
-const OG_LOGO   = 'https://res.cloudinary.com/dsphxo7mx/image/upload/c_scale,w_700/q_auto,f_jpg/e_negate/c_pad,b_rgb:000000,w_1200,h_630,g_center/v1777731841/DD_BLANCO_l8xqal.png';
+const OG_LOGO = 'https://res.cloudinary.com/zr7n3blx/image/upload/v1789410251/remarubi-share-card.jpg';
 
 function buildOgLogoUrl(logoUrl) {
   if (!logoUrl || !logoUrl.includes('cloudinary.com')) return OG_LOGO;
@@ -258,7 +258,7 @@ function buildShowreelOG(content) {
  * Prioridad de imagen: cover (si no es vídeo) → poster (cartel) → logo blanco.
  */
 function buildOGData(project) {
-  const title       = esc(`${project.title} — Rebeca Márquez Rubio`);
+  const title = esc(`${project.title} — Rebeca Márquez Rubio`);
   const description = esc(
     project.synopsis?.es || project.synopsis?.en || 'Proyecto cinematográfico de Rebeca Márquez Rubio, Director de Fotografía.'
   );
