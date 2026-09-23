@@ -734,11 +734,17 @@
         "en": "Spain, 1936. As a protest against the military uprising against the Second Republic, a young anarchist worker and religious brotherhood member gets caught up in the burning of a church that houses his most treasured symbol of devotion. Selected at over 50 festivals, including the Carmen Awards and the Asecan Awards.",
         "ca": "Espanya, 1936. Com a protesta contra l'aixecament militar contra la II República, un jove obrer anarquista i confrare es veu immers en la crema d'una església que custodia el seu més preuat símbol de devoció. Seleccionat en més de 50 festivals, entre els quals destaquen els Premis Carmen i els Premis Asecan."
       },
-      "cover": "",
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160575/IMG_2992.webp",
       "poster": "",
-      "preview_url": "",
-      "stills": [],
-      "bts": [],
+      "preview_url": "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160575/IMG_2992.webp",
+      "stills": [
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160575/IMG_2992.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160573/IMG_2995.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160572/IMG_2994.webp"
+      ],
+      "bts": [
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160573/IMG_2993.webp"
+      ],
       "external_link": "",
       "home_featured": false,
       "home_size": "medium",
@@ -762,11 +768,17 @@
         "en": "Six girls answer the call of a force that draws them onto a path to begin a deeply sensory ceremony. Amid polka-dot skirts and guitar chords, they all prepare to bid farewell to one of their own. Far from a mere retelling of the witchcraft myth, the short film blends fantasy with a critique of a phenomenon as fictional as it is real. Selected, among others, at the Seville Film Festival (SEFF, Panorama Andaluz), Cortogijón and the Caostica festival.",
         "ca": "Sis noies reben la crida d'una força que les atrau a emprendre un camí per començar una cerimònia de allò més sensorial. Entre faldilles de pics i acords de guitarra, totes elles es preparen per acomiadar una de les seves. Lluny de ser una mera representació del mite de la bruixeria, el curtmetratge aúna fantasia i crítica d'un fenomen tan fictici com real. Seleccionat, entre d'altres, al Festival de Sevilla (SEFF, Panorama Andalús), a Cortogijón i al festival Caostica."
       },
-      "cover": "",
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160784/382_SABBAT_ANDALU_1.webp",
       "poster": "",
       "preview_url": "",
-      "stills": [],
-      "bts": [],
+      "stills": [
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160784/382_SABBAT_ANDALU_1.webp"
+      ],
+      "bts": [
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160784/204_SABBAT_ANDALU_2.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160763/133_SABBAT_ANDALU_1.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160763/133_SABBAT_ANDALU_1.webp"
+      ],
       "external_link": "",
       "home_featured": false,
       "home_size": "wide",
