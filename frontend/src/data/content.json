@@ -364,9 +364,9 @@
       "director": "Rebeca Márquez",
       "production_company": "",
       "synopsis": {
-        "es": "Una adolescente intenta mantener su lugar en un grupo de amigos cuando la llegada de una chica nueva empieza a desestabilizar la dinámica, obligándola a confrontar sus lealtades, su identidad y el machismo cotidiano que hasta ahora no se había cuestionado.",
-        "en": "A teenage girl tries to hold her place within a group of friends when the arrival of a new girl starts to destabilize the group's dynamic, forcing her to confront her loyalties, her identity and the everyday sexism she had never questioned before.",
-        "ca": "Una adolescent intenta mantenir el seu lloc en un grup d'amigues quan l'arribada d'una noia nova comença a desestabilitzar la dinàmica, obligant-la a confrontar les seves lleialtats, la seva identitat i el masclisme quotidià que fins ara no s'havia qüestionat."
+        "es": "Una adolescente intenta mantener su lugar en un grupo de amigos cuando la llegada de una chica nueva empieza a desestabilizar la dinámica, obligándola a confrontar sus lealtades, su identidad y el machismo cotidiano que hasta ahora no se había cuestionado. El cortometraje ha sido seleccionado en el Festival de Nuevo Cine Andaluz de Casares y en el Festival de Cinema Ciutadà Compromès.",
+        "en": "A teenage girl tries to hold on to her place within a group of friends when the arrival of a new girl begins to disrupt the group’s dynamics, forcing her to confront her loyalties, her identity, and the everyday sexism she had never questioned before. The short film has been selected for the Festival de Nuevo Cine Andaluz de Casares and the Festival de Cinema Ciutadà Compromès.",
+        "ca": "Una adolescent intenta mantenir el seu lloc dins d’un grup d’amics quan l’arribada d’una noia nova comença a desestabilitzar la dinàmica del grup, obligant-la a confrontar les seves lleialtats, la seva identitat i el masclisme quotidià que fins aleshores no s’havia qüestionat. El curtmetratge ha estat seleccionat al Festival de Nuevo Cine Andaluz de Casares i al Festival de Cinema Ciutadà Compromès."
       },
       "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788137811/CONFORMADO_01_07_49_08.webp",
       "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1788137352/CARTEL_ASI_SON.webp",
@@ -702,10 +702,14 @@
         "en": "Irene is street-harassed by a stranger. Frightened, she turns to her father, who decides to drive her around to look for the harasser. It's then that Irene realizes her own father's behavior isn't so different from that of the man who followed her.",
         "ca": "L'Irene pateix l'assetjament al carrer d'un desconegut. Espantada, acut al seu pare, que decideix pujar-la al cotxe per buscar l'assetjador. És llavors quan l'Irene s'adona que el comportament del seu propi pare no és tan diferent del de l'home que l'ha perseguit."
       },
-      "cover": "",
-      "poster": "",
+      "cover": "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160052/la-nina-tatuada-Captura_1.webp",
+      "poster": "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160052/PHOTO-2023-11-17-18-40-56_1.webp",
       "preview_url": "",
-      "stills": [],
+      "stills": [
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160052/la-nina-tatuada-Captura_1.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160051/la-nina-tatuada-Captura2.webp",
+        "https://res.cloudinary.com/zr7n3blx/image/upload/v1790160051/0b26e275-fa10-4154-83f9-6461c576d9a3.webp"
+      ],
       "bts": [],
       "external_link": "",
       "home_featured": false,
